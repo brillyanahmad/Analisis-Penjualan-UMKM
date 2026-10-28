@@ -72,7 +72,7 @@ h1 {
 
 .sub { color: var(--text-muted); font-size: 12.5px; margin-top: 3px; }
 
-/* Alert Banner Restock (Pengembangan 4) */
+/* Alert Banner Restock */
 .alert-banner {
   background: var(--status-red-bg);
   border: 1px solid rgba(239, 68, 68, 0.3);
@@ -199,7 +199,7 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .bar { display: inline-block; vertical-align: middle; height: 6px; border-radius: 3px; background: var(--accent-purple); margin-left: 8px; opacity: 0.85; }
 
-.pill { font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 99px; }
+.pill { font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 99px; text-transform: capitalize; }
 .aman { background: var(--status-green-bg); color: var(--status-green); }
 .menipis { background: var(--status-amber-bg); color: var(--status-amber); }
 .habis { background: var(--status-red-bg); color: var(--status-red); }
@@ -279,6 +279,7 @@ input:focus, select:focus {
   width: max-content;
   max-width: 90vw;
   text-align: center;
+  z-index: 999;
 }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
 #toast.err { border-left: 4px solid var(--status-red); }
@@ -310,7 +311,7 @@ input:focus, select:focus {
     </div>
   </header>
 
-  <!-- Peringatan Restock (Fitur 4) -->
+  <!-- Peringatan Restock -->
   <div id="alertContainer"></div>
 
   <!-- Navigation Tabs -->
@@ -321,6 +322,7 @@ input:focus, select:focus {
       <button data-t="ops">Arus Kas Ops</button>
       <button data-t="sim">Simulasi Diskon</button>
       <button data-t="produk">Produk & Stok</button>
+      <button data-t="pfManager">Kelola Platform</button>
       <button data-t="impor">Backup & CSV</button>
     </div>
   </div>
@@ -328,13 +330,13 @@ input:focus, select:focus {
   <!-- TAB 1: DASHBOARD -->
   <main id="dash">
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
-      <div class="tabs-nav" id="pfFilter" style="min-width: unset;">
-        <button data-f="semua" class="on">Semua</button>
-        <button data-f="shopee">Shopee</button>
-        <button data-f="tokopedia">Tokopedia</button>
+      <div class="nav-scroll-wrapper" style="max-width: 100%; flex: 1;">
+        <div class="tabs-nav" id="pfFilter" style="min-width: unset;">
+          <!-- Filter Platform Dinamis -->
+        </div>
       </div>
 
-      <!-- Fitur 2: Tombol Ekspor -->
+      <!-- Tombol Ekspor -->
       <div style="display:flex; gap:8px;">
         <button class="btn ghost sm" onclick="exportDataExcel()">📊 Ekspor Excel/CSV</button>
         <button class="btn ghost sm" onclick="window.print()">🖨️ Cetak PDF</button>
@@ -352,7 +354,7 @@ input:focus, select:focus {
     <div class="cols">
       <div class="glass-card">
         <h2>Ringkasan Analisis & Smart Alerts</h2>
-        <p class="desc">Insight otomatis dan estimasi stok (Fitur 4).</p>
+        <p class="desc">Insight otomatis dan estimasi stok.</p>
         <ul class="ins" id="insightView" style="margin:0; padding:0; list-style:none;"></ul>
       </div>
       <div class="glass-card">
@@ -364,7 +366,7 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Produk Terlaris & Net Profit SKU</h2>
-      <p class="desc">Diurutkan dari unit terjual (Fitur 3: Termasuk Iklan Ads).</p>
+      <p class="desc">Diurutkan dari unit terjual (Termasuk Iklan Ads).</p>
       <div class="tw"><table id="topProductTable"></table></div>
     </div>
 
@@ -381,7 +383,7 @@ input:focus, select:focus {
       <h2>Catat Penjualan Baru</h2>
       <form id="fJual" class="grid">
         <label>Tanggal<input type="date" id="jTgl" required></label>
-        <label>Platform<select id="jPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select></label>
+        <label>Platform<select id="jPf"></select></label>
         <label class="wide">Produk<select id="jSku" required></select></label>
         <label>Jumlah<input type="number" id="jQty" min="1" value="1" required></label>
         <label>Harga Jual / Unit (Rp)<input type="number" id="jHarga" min="0" required></label>
@@ -401,7 +403,7 @@ input:focus, select:focus {
     </div>
   </main>
 
-  <!-- TAB 3: BIAYA OPERASIONAL (Fitur 1) -->
+  <!-- TAB 3: BIAYA OPERASIONAL -->
   <main id="ops" hidden>
     <div class="glass-card">
       <h2>Catat Biaya Operasional / Pengeluaran Lain</h2>
@@ -431,7 +433,7 @@ input:focus, select:focus {
     </div>
   </main>
 
-  <!-- TAB 4: SIMULASI MARGIN & DISKON (Fitur 3) -->
+  <!-- TAB 4: SIMULASI MARGIN & DISKON -->
   <main id="sim" hidden>
     <div class="glass-card">
       <h2>Kalkulator Diskon & Margin Flash Sale</h2>
@@ -470,10 +472,30 @@ input:focus, select:focus {
     </div>
   </main>
 
-  <!-- TAB 6: BACKUP & IMPOR CSV (Fitur 2 & 5) -->
+  <!-- TAB BARU: KELOLA PLATFORM -->
+  <main id="pfManager" hidden>
+    <div class="glass-card">
+      <h2>Kelola Platform / Saluran Penjualan</h2>
+      <p class="desc">Tambah atau hapus saluran penjualan tempat Anda berdagang (misal: TikTok Shop, Lazada, WhatsApp, Offline, dll).</p>
+      <form id="fPlatform" class="grid">
+        <label>ID Platform (Unik)<input id="pfId" required placeholder="Contoh: tiktok, lazada, offline"></label>
+        <label>Nama Tampilan Platform<input id="pfNama" required placeholder="Contoh: TikTok Shop, Lazada, Toko Offline"></label>
+        <div class="wide" style="margin-top: 6px;">
+          <button class="btn" type="submit">Tambah Platform</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="glass-card">
+      <h2>Daftar Platform Penjualan</h2>
+      <div class="tw"><table id="tPlatform"></table></div>
+    </div>
+  </main>
+
+  <!-- TAB 6: BACKUP & IMPOR CSV -->
   <main id="impor" hidden>
     <div class="glass-card">
-      <h2>Cadangkan & Pulihkan Data JSON (Fitur 2 & 5)</h2>
+      <h2>Cadangkan & Pulihkan Data JSON</h2>
       <p class="desc">Pindahkan data antar perangkat atau amankan dari hilangnya cache browser.</p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button class="btn" onclick="backupJSON()">📥 Download Backup (JSON)</button>
@@ -484,9 +506,9 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Impor Laporan CSV Marketplace</h2>
-      <p class="desc">Pilih file CSV laporan pesanan dari Shopee/Tokopedia.</p>
+      <p class="desc">Pilih file CSV laporan pesanan dari platform Anda.</p>
       <label style="max-width:100%">Platform
-        <select id="iPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select>
+        <select id="iPf"></select>
       </label>
       <div class="drop" id="dropArea">Tarik file CSV ke sini atau tap untuk memilih file<input type="file" id="iFile" accept=".csv,text/csv" hidden></div>
     </div>
@@ -498,17 +520,19 @@ input:focus, select:focus {
 <script>
 // --- INITIAL DATA STORE ---
 const INITIAL_DATA = {
+  platforms: [
+    { id: "shopee", nama: "Shopee" },
+    { id: "tokopedia", nama: "Tokopedia" }
+  ],
   produk: [
     { sku: "KRP-01", nama_produk: "Keripik Singkong Original", harga_modal: 8000, harga_jual: 15000, stok_awal: 100, stok_minimum: 15 },
     { sku: "KRP-02", nama_produk: "Keripik Singkong Pedas", harga_modal: 8500, harga_jual: 16000, stok_awal: 80, stok_minimum: 10 },
     { sku: "BNS-01", nama_produk: "Banana Crispy Cokelat", harga_modal: 12000, harga_jual: 22000, stok_awal: 50, stok_minimum: 5 }
   ],
-  shopee: [
-    { tanggal: "2026-10-20", order_id: "SPE001", sku: "KRP-01", jumlah: 5, harga_jual: 15000, biaya_platform: 3000, biaya_ads: 2000 },
-    { tanggal: "2026-10-21", order_id: "SPE002", sku: "KRP-02", jumlah: 8, harga_jual: 16000, biaya_platform: 5000, biaya_ads: 3000 }
-  ],
-  tokopedia: [
-    { tanggal: "2026-10-20", order_id: "TKP001", sku: "KRP-01", jumlah: 3, harga_jual: 15000, biaya_platform: 2000, biaya_ads: 0 }
+  penjualan: [
+    { tanggal: "2026-10-20", order_id: "SPE001", platform: "shopee", sku: "KRP-01", jumlah: 5, harga_jual: 15000, biaya_platform: 3000, biaya_ads: 2000 },
+    { tanggal: "2026-10-21", order_id: "SPE002", platform: "shopee", sku: "KRP-02", jumlah: 8, harga_jual: 16000, biaya_platform: 5000, biaya_ads: 3000 },
+    { tanggal: "2026-10-20", order_id: "TKP001", platform: "tokopedia", sku: "KRP-01", jumlah: 3, harga_jual: 15000, biaya_platform: 2000, biaya_ads: 0 }
   ],
   operasional: [
     { tanggal: "2026-10-21", keterangan: "Lakban & Dus Bubble", kategori: "packing", nominal: 15000 }
@@ -516,12 +540,35 @@ const INITIAL_DATA = {
 };
 
 function loadStore() {
-  const local = localStorage.getItem("umkm_dashboard_data_v2");
-  return local ? JSON.parse(local) : INITIAL_DATA;
+  const local = localStorage.getItem("umkm_dashboard_data_v3");
+  if (!local) {
+    // Jalankan migrasi data lama jika ada
+    const oldLocal = localStorage.getItem("umkm_dashboard_data_v2");
+    if (oldLocal) {
+      try {
+        const oldData = JSON.parse(oldLocal);
+        const newData = {
+          platforms: [
+            { id: "shopee", nama: "Shopee" },
+            { id: "tokopedia", nama: "Tokopedia" }
+          ],
+          produk: oldData.produk || [],
+          penjualan: [],
+          operasional: oldData.operasional || []
+        };
+        (oldData.shopee || []).forEach(r => newData.penjualan.push({...r, platform: "shopee"}));
+        (oldData.tokopedia || []).forEach(r => newData.penjualan.push({...r, platform: "tokopedia"}));
+        localStorage.setItem("umkm_dashboard_data_v3", JSON.stringify(newData));
+        return newData;
+      } catch(e) {}
+    }
+    return INITIAL_DATA;
+  }
+  return JSON.parse(local);
 }
 
 function saveStore(data) {
-  localStorage.setItem("umkm_dashboard_data_v2", JSON.stringify(data));
+  localStorage.setItem("umkm_dashboard_data_v3", JSON.stringify(data));
   renderAll();
 }
 
@@ -553,23 +600,21 @@ function analyzeData(filterPlatform = "semua") {
   });
 
   const allTx = [];
-  ["shopee", "tokopedia"].forEach(pf => {
-    if (filterPlatform !== "semua" && filterPlatform !== pf) return;
-    (STORE[pf] || []).forEach(r => {
-      if (!produkMap[r.sku]) return;
-      const jumlah = +r.jumlah;
-      const omzet = jumlah * (+r.harga_jual);
-      const modal = jumlah * produkMap[r.sku].modal;
-      const biaya = +r.biaya_platform || 0;
-      const ads = +r.biaya_ads || 0;
-      allTx.push({
-        tanggal: r.tanggal,
-        order_id: r.order_id,
-        platform: pf,
-        sku: r.sku,
-        jumlah, omzet, modal, biaya, ads,
-        laba: omzet - modal - biaya - ads
-      });
+  (STORE.penjualan || []).forEach(r => {
+    if (filterPlatform !== "semua" && filterPlatform !== r.platform) return;
+    if (!produkMap[r.sku]) return;
+    const jumlah = +r.jumlah;
+    const omzet = jumlah * (+r.harga_jual);
+    const modal = jumlah * produkMap[r.sku].modal;
+    const biaya = +r.biaya_platform || 0;
+    const ads = +r.biaya_ads || 0;
+    allTx.push({
+      tanggal: r.tanggal,
+      order_id: r.order_id,
+      platform: r.platform,
+      sku: r.sku,
+      jumlah, omzet, modal, biaya, ads,
+      laba: omzet - modal - biaya - ads
     });
   });
 
@@ -583,7 +628,7 @@ function analyzeData(filterPlatform = "semua") {
   const totalFeePlatform = allTx.reduce((s, r) => s + r.biaya, 0);
   const totalAdsSKU = allTx.reduce((s, r) => s + r.ads, 0);
   
-  // Total Operasional (Fitur 1)
+  // Total Operasional
   const totalOpsLain = (STORE.operasional || []).reduce((s, r) => s + (+r.nominal), 0);
   const labaBersihTotal = omzetKotor - totalModal - totalFeePlatform - totalAdsSKU - totalOpsLain;
 
@@ -608,12 +653,10 @@ function analyzeData(filterPlatform = "semua") {
     };
   }).sort((a,b) => b.unit - a.unit);
 
-  // Stok & Prediksi Waktu Restock (Fitur 4)
+  // Stok & Prediksi Waktu Restock
   const totalTerjualMap = {};
-  ["shopee", "tokopedia"].forEach(pf => {
-    (STORE[pf] || []).forEach(r => {
-      totalTerjualMap[r.sku] = (totalTerjualMap[r.sku] || 0) + (+r.jumlah);
-    });
+  (STORE.penjualan || []).forEach(r => {
+    totalTerjualMap[r.sku] = (totalTerjualMap[r.sku] || 0) + (+r.jumlah);
   });
 
   const daysCount = Math.max(dates.length, 1);
@@ -646,11 +689,12 @@ function analyzeData(filterPlatform = "semua") {
     };
   }).sort((a,b) => (a.status === "habis" ? -1 : 1));
 
-  // Platform Breakdown
-  const platformBreakdown = ["shopee", "tokopedia"].map(pf => {
-    const rows = allTx.filter(r => r.platform === pf);
+  // Platform Breakdown Dinamis
+  const platformBreakdown = (STORE.platforms || []).map(pf => {
+    const rows = allTx.filter(r => r.platform === pf.id);
     return {
-      nama: pf === "shopee" ? "Shopee" : "Tokopedia",
+      id: pf.id,
+      nama: pf.nama,
       omzet: rows.reduce((s, r) => s + r.omzet, 0),
       laba: rows.reduce((s, r) => s + r.laba, 0),
       unit: rows.reduce((s, r) => s + r.jumlah, 0)
@@ -683,13 +727,20 @@ function analyzeData(filterPlatform = "semua") {
 let currentFilter = "semua";
 
 function renderDashboard() {
+  // Render Filter Tab Platform Dinamis
+  let pfFilterHTML = `<button data-f="semua" class="${currentFilter === 'semua' ? 'on' : ''}">Semua</button>`;
+  (STORE.platforms || []).forEach(pf => {
+    pfFilterHTML += `<button data-f="${esc(pf.id)}" class="${currentFilter === pf.id ? 'on' : ''}">${esc(pf.nama)}</button>`;
+  });
+  $("pfFilter").innerHTML = pfFilterHTML;
+
   const data = analyzeData(currentFilter);
   const R = data.ringkasan;
   const p = data.periode;
 
   $("headerSub").textContent = `${tgl(p.awal)} - ${tgl(p.akhir)} · ${p.hari} Hari Transaksi`;
 
-  // Render Smart Alert Banner (Fitur 4)
+  // Render Smart Alert Banner
   const habisItem = data.stok.filter(s => s.status !== "aman");
   if (habisItem.length) {
     $("alertContainer").innerHTML = `
@@ -752,8 +803,8 @@ function renderDashboard() {
   const mxPf = Math.max(1, ...data.platform.map(p => p.omzet));
   $("pfView").innerHTML = data.platform.map(x => `
     <div style="margin-bottom:12px;">
-      <div style="display:flex; justify-size:space-between; font-size:13px; margin-bottom:4px;"><b>${x.nama}</b><span>${rp(x.laba)} laba</span></div>
-      <div style="height:8px; background:rgba(0,0,0,0.06); border-radius:4px; overflow:hidden;"><div style="height:100%; width:${(x.omzet/mxPf)*100}%; background:var(--accent-purple);"></div></div>
+      <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;"><b>${x.nama}</b><span>${rp(x.laba)} laba</span></div>
+      <div style="height:8px; background:rgba(0,0,0,0.06); border-radius:4px; overflow:hidden;"><div style="height:100%; width:${mxPf ? (x.omzet/mxPf)*100 : 0}%; background:var(--accent-purple);"></div></div>
     </div>
   `).join("");
 
@@ -782,24 +833,29 @@ function renderForms() {
   $("jSku").innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)} (${esc(p.sku)})</option>`).join("");
   $("sSku").innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)}</option>`).join("");
 
+  // Populate Select Options untuk Platform secara Dinamis
+  const pfOptions = (STORE.platforms || []).map(p => `<option value="${esc(p.id)}">${esc(p.nama)}</option>`).join("");
+  $("jPf").innerHTML = pfOptions;
+  $("iPf").innerHTML = pfOptions;
+
   // Penjualan Table
-  const allSales = [];
-  ["shopee", "tokopedia"].forEach(pf => {
-    (STORE[pf] || []).forEach((r, i) => allSales.push({...r, pf, i}));
-  });
+  const allSales = [...(STORE.penjualan || [])].map((r, i) => ({...r, i}));
   allSales.sort((a,b) => b.tanggal.localeCompare(a.tanggal));
 
-  $("tJual").innerHTML = `<thead><tr><th>Tanggal</th><th>PF</th><th>SKU</th><th class="r">Harga</th><th class="r">Ads</th><th class="r">Aksi</th></tr></thead><tbody>` +
+  const pfMap = {};
+  (STORE.platforms || []).forEach(p => pfMap[p.id] = p.nama);
+
+  $("tJual").innerHTML = `<thead><tr><th>Tanggal</th><th>Platform</th><th>SKU</th><th class="r">Harga</th><th class="r">Ads</th><th class="r">Aksi</th></tr></thead><tbody>` +
     allSales.slice(0, 10).map(r => `<tr>
       <td>${r.tanggal}</td>
-      <td><span class="pill aman">${r.pf}</span></td>
+      <td><span class="pill aman">${esc(pfMap[r.platform] || r.platform)}</span></td>
       <td>${esc(r.sku)}</td>
       <td class="r">${rp(r.harga_jual)}</td>
       <td class="r">${rp(r.biaya_ads || 0)}</td>
-      <td class="r"><button class="btn ghost sm" onclick="hapusPenjualan('${r.pf}', ${r.i})">Hapus</button></td>
+      <td class="r"><button class="btn ghost sm" onclick="hapusPenjualan(${r.i})">Hapus</button></td>
     </tr>`).join("") + `</tbody>`;
 
-  // Operasional Table (Fitur 1)
+  // Operasional Table
   $("tOps").innerHTML = `<thead><tr><th>Tanggal</th><th>Keterangan</th><th>Kategori</th><th class="r">Nominal</th><th class="r">Aksi</th></tr></thead><tbody>` +
     (STORE.operasional || []).map((o, i) => `<tr>
       <td>${o.tanggal}</td>
@@ -819,16 +875,25 @@ function renderForms() {
       <td class="r"><button class="btn ghost sm" onclick="hapusProduk('${esc(p.sku)}')">Hapus</button></td>
     </tr>`).join("") + `</tbody>`;
 
+  // Platform Manager Table
+  $("tPlatform").innerHTML = `<thead><tr><th>ID Platform</th><th>Nama Platform</th><th class="r">Aksi</th></tr></thead><tbody>` +
+    (STORE.platforms || []).map((p, i) => `<tr>
+      <td><b>${esc(p.id)}</b></td>
+      <td>${esc(p.nama)}</td>
+      <td class="r"><button class="btn ghost sm" onclick="hapusPlatform(${i})">Hapus</button></td>
+    </tr>`).join("") + `</tbody>`;
+
   hitungSimulasi();
 }
 
 // --- SUBMIT HANDLERS ---
 $("fJual").onsubmit = e => {
   e.preventDefault();
-  const pf = $("jPf").value;
-  STORE[pf].push({
+  if (!STORE.penjualan) STORE.penjualan = [];
+  STORE.penjualan.push({
     tanggal: $("jTgl").value,
     order_id: $("jOrder").value.trim() || "TX-" + Date.now().toString(36).toUpperCase(),
+    platform: $("jPf").value,
     sku: $("jSku").value,
     jumlah: +$("jQty").value,
     harga_jual: +$("jHarga").value,
@@ -875,7 +940,27 @@ $("fProduk").onsubmit = e => {
   $("fProduk").reset();
 };
 
-// --- SIMULATOR DISKON & MARGIN (Fitur 3) ---
+// Form Tambah Platform
+$("fPlatform").onsubmit = e => {
+  e.preventDefault();
+  const id = $("pfId").value.trim().toLowerCase().replace(/\s+/g, "_");
+  const nama = $("pfNama").value.trim();
+
+  if (!id || !nama) return;
+
+  if (!STORE.platforms) STORE.platforms = [];
+  if (STORE.platforms.some(p => p.id === id)) {
+    toast("ID Platform sudah ada!", true);
+    return;
+  }
+
+  STORE.platforms.push({ id, nama });
+  saveStore(STORE);
+  toast("Platform berhasil ditambahkan!");
+  $("fPlatform").reset();
+};
+
+// --- SIMULATOR DISKON & MARGIN ---
 function hitungSimulasi() {
   const sku = $("sSku").value;
   const prod = STORE.produk.find(p => p.sku === sku);
@@ -905,13 +990,11 @@ function hitungSimulasi() {
   `;
 }
 
-// --- EKSPOR EXCEL & BACKUP JSON (Fitur 2 & 5) ---
+// --- EKSPOR EXCEL & BACKUP JSON ---
 function exportDataExcel() {
   let csv = "Tanggal,Platform,SKU,Jumlah,Harga Jual,Biaya Platform,Biaya Ads\n";
-  ["shopee", "tokopedia"].forEach(pf => {
-    (STORE[pf] || []).forEach(r => {
-      csv += `${r.tanggal},${pf},${r.sku},${r.jumlah},${r.harga_jual},${r.biaya_platform || 0},${r.biaya_ads || 0}\n`;
-    });
+  (STORE.penjualan || []).forEach(r => {
+    csv += `${r.tanggal},${r.platform},${r.sku},${r.jumlah},${r.harga_jual},${r.biaya_platform || 0},${r.biaya_ads || 0}\n`;
   });
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const a = document.createElement("a");
@@ -935,7 +1018,19 @@ function restoreJSON(e) {
   reader.onload = function(evt) {
     try {
       const parsed = JSON.parse(evt.target.result);
-      if (parsed.produk && (parsed.shopee || parsed.tokopedia)) {
+      if (parsed.produk && (parsed.penjualan || parsed.shopee)) {
+        // Jika format JSON versi lama, sesuaikan
+        if (!parsed.penjualan) {
+          parsed.penjualan = [];
+          (parsed.shopee || []).forEach(r => parsed.penjualan.push({...r, platform: "shopee"}));
+          (parsed.tokopedia || []).forEach(r => parsed.penjualan.push({...r, platform: "tokopedia"}));
+        }
+        if (!parsed.platforms) {
+          parsed.platforms = [
+            { id: "shopee", nama: "Shopee" },
+            { id: "tokopedia", nama: "Tokopedia" }
+          ];
+        }
         STORE = parsed;
         saveStore(STORE);
         toast("Data berhasil dipulihkan!");
@@ -947,14 +1042,21 @@ function restoreJSON(e) {
   reader.readAsText(file);
 }
 
-function hapusPenjualan(pf, idx) {
-  if (confirm("Hapus baris ini?")) { STORE[pf].splice(idx, 1); saveStore(STORE); }
+function hapusPenjualan(idx) {
+  if (confirm("Hapus baris ini?")) { STORE.penjualan.splice(idx, 1); saveStore(STORE); }
 }
 function hapusOps(idx) {
   if (confirm("Hapus biaya operasional ini?")) { STORE.operasional.splice(idx, 1); saveStore(STORE); }
 }
 function hapusProduk(sku) {
   if (confirm(`Hapus SKU ${sku}?`)) { STORE.produk = STORE.produk.filter(p => p.sku !== sku); saveStore(STORE); }
+}
+function hapusPlatform(idx) {
+  const targetPf = STORE.platforms[idx];
+  if (confirm(`Hapus platform "${targetPf.nama}"? Transaksi yang sudah tercatat dengan platform ini akan tetap disimpan.`)) {
+    STORE.platforms.splice(idx, 1);
+    saveStore(STORE);
+  }
 }
 
 $("jTgl").value = new Date().toISOString().split("T")[0];
@@ -965,7 +1067,7 @@ $("navTabs").onclick = e => {
   document.querySelectorAll("#navTabs button").forEach(b => b.classList.remove("on"));
   e.target.classList.add("on");
   const target = e.target.dataset.t;
-  ["dash", "jual", "ops", "sim", "produk", "impor"].forEach(id => $(id).hidden = id !== target);
+  ["dash", "jual", "ops", "sim", "produk", "pfManager", "impor"].forEach(id => $(id).hidden = id !== target);
 };
 
 $("pfFilter").onclick = e => {
