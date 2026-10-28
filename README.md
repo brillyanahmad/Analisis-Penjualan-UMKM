@@ -1,4 +1,4 @@
-##📊 Dashboard Penjualan UMKM Pro
+##📊 Dashboard Penjualan UMKM Pro##
 
 Dashboard Penjualan UMKM Pro adalah aplikasi web manajemen bisnis dan analisis keuangan terpadu yang dirancang untuk membantu pelaku UMKM mengelola transaksi multi-channel, memantau stok gudang, serta menganalisis keuntungan bersih secara presisi.
 
