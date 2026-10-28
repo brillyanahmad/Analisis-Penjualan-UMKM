@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Dashboard Penjualan UMKM - Glassmorphism Mobile Friendly</title>
+<title>Dashboard Penjualan UMKM Pro - Glassmorphism Edition</title>
 <style>
 :root {
   --bg-main: #f3f6fc;
@@ -46,7 +46,7 @@ body {
 }
 
 .wrap {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 20px 16px;
 }
@@ -57,7 +57,7 @@ header {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -70,10 +70,22 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-.sub {
-  color: var(--text-muted);
-  font-size: 12.5px;
-  margin-top: 3px;
+.sub { color: var(--text-muted); font-size: 12.5px; margin-top: 3px; }
+
+/* Alert Banner Restock (Pengembangan 4) */
+.alert-banner {
+  background: var(--status-red-bg);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--status-red);
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 /* Glassmorphism Card Style */
@@ -90,7 +102,7 @@ h1 {
   position: relative;
 }
 
-/* Tabs Nav Optimization (Horizontal Scroll for Mobile) */
+/* Navigation Bar Scrollable */
 .nav-scroll-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -98,10 +110,7 @@ h1 {
   -ms-overflow-style: none;
   padding-bottom: 4px;
 }
-
-.nav-scroll-wrapper::-webkit-scrollbar {
-  display: none;
-}
+.nav-scroll-wrapper::-webkit-scrollbar { display: none; }
 
 .tabs-nav {
   display: inline-flex;
@@ -136,12 +145,12 @@ h1 {
   box-shadow: 0 3px 10px rgba(139, 92, 246, 0.18);
 }
 
-/* Strip KPI Cards Responsive Grid */
+/* Strip KPI Cards */
 .strip {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .kpi-card {
@@ -165,15 +174,15 @@ h1 {
 .lbl { color: var(--text-muted); font-size: 12px; font-weight: 500; }
 .val { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; color: #0f172a; word-break: break-all; }
 .val.big { color: var(--accent-purple); }
+.val.green { color: var(--status-green); }
 .hint { color: var(--text-muted); font-size: 11.5px; margin-top: 2px; }
 
 /* Grid Layouts */
 .cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
-
 h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
 .desc { color: var(--text-muted); font-size: 12.5px; margin: 0 0 14px; }
 
-/* Tables Responsive Wrapper */
+/* Tables Responsive */
 .tw { 
   overflow-x: auto; 
   -webkit-overflow-scrolling: touch;
@@ -181,7 +190,7 @@ h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em
   padding: 0 16px;
 }
 
-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 500px; }
 th { text-align: left; font-weight: 600; color: var(--text-muted); font-size: 12px; padding: 0 10px 10px 0; border-bottom: 1px solid rgba(0,0,0,0.08); white-space: nowrap; }
 td { padding: 12px 10px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); white-space: nowrap; }
 tr:last-child td { border-bottom: 0; }
@@ -189,22 +198,11 @@ tr:last-child td { border-bottom: 0; }
 td:last-child, th:last-child { padding-right: 0; }
 
 .bar { display: inline-block; vertical-align: middle; height: 6px; border-radius: 3px; background: var(--accent-purple); margin-left: 8px; opacity: 0.85; }
-.top td:nth-child(2) { font-weight: 600; }
 
 .pill { font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 99px; }
 .aman { background: var(--status-green-bg); color: var(--status-green); }
 .menipis { background: var(--status-amber-bg); color: var(--status-amber); }
 .habis { background: var(--status-red-bg); color: var(--status-red); }
-
-/* Progress Track */
-.pf { margin-bottom: 16px; } .pf:last-child { margin-bottom: 0; }
-.pf b { font-weight: 600; } .pf .row { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px; }
-.track { height: 8px; background: rgba(0,0,0,0.06); border-radius: 4px; overflow: hidden; }
-.track i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue)); }
-
-ul.ins { margin: 0; padding: 0; list-style: none; }
-ul.ins li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 13.5px; line-height: 1.4; }
-ul.ins li:last-child { border-bottom: 0; }
 
 /* Forms & Inputs */
 .grid { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: end; }
@@ -240,6 +238,7 @@ input:focus, select:focus {
   box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
   transition: all 0.2s ease;
   width: 100%;
+  text-align: center;
 }
 .btn:hover { opacity: 0.95; transform: translateY(-1px); }
 .btn.ghost { background: #fff; color: var(--text-primary); border: 1px solid #cbd5e1; box-shadow: none; }
@@ -286,7 +285,6 @@ input:focus, select:focus {
 
 [hidden] { display: none !important; }
 
-/* Desktop Responsive Enhancements */
 @media(min-width: 640px) {
   .wrap { padding: 32px 20px; }
   h1 { font-size: 26px; }
@@ -307,44 +305,55 @@ input:focus, select:focus {
 <div class="wrap">
   <header>
     <div>
-      <h1>Penjualan UMKM</h1>
-      <div class="sub" id="headerSub">Dashboard Analisis & Management Penjualan</div>
+      <h1>Penjualan UMKM Pro</h1>
+      <div class="sub" id="headerSub">Dashboard Analisis & Manajemen Bisnis</div>
     </div>
   </header>
 
-  <!-- Navigation Bar Horizontal Scroll Friendly -->
+  <!-- Peringatan Restock (Fitur 4) -->
+  <div id="alertContainer"></div>
+
+  <!-- Navigation Tabs -->
   <div class="nav-scroll-wrapper" style="margin-bottom: 20px;">
     <div class="tabs-nav" id="navTabs">
       <button data-t="dash" class="on">Dashboard</button>
       <button data-t="jual">Catat Penjualan</button>
+      <button data-t="ops">Arus Kas Ops</button>
+      <button data-t="sim">Simulasi Diskon</button>
       <button data-t="produk">Produk & Stok</button>
-      <button data-t="impor">Impor CSV</button>
+      <button data-t="impor">Backup & CSV</button>
     </div>
   </div>
 
   <!-- TAB 1: DASHBOARD -->
   <main id="dash">
-    <div class="nav-scroll-wrapper" style="margin-bottom:16px;">
-      <div class="tabs-nav" id="pfFilter" style="min-width: unset; width: 100%;">
-        <button data-f="semua" class="on">Semua Platform</button>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+      <div class="tabs-nav" id="pfFilter" style="min-width: unset;">
+        <button data-f="semua" class="on">Semua</button>
         <button data-f="shopee">Shopee</button>
         <button data-f="tokopedia">Tokopedia</button>
+      </div>
+
+      <!-- Fitur 2: Tombol Ekspor -->
+      <div style="display:flex; gap:8px;">
+        <button class="btn ghost sm" onclick="exportDataExcel()">📊 Ekspor Excel/CSV</button>
+        <button class="btn ghost sm" onclick="window.print()">🖨️ Cetak PDF</button>
       </div>
     </div>
 
     <div class="strip" id="kpiStrip"></div>
 
     <div class="glass-card">
-      <h2>Tren Harian</h2>
-      <p class="desc">Grafik omzet dan laba harian.</p>
+      <h2>Tren Penjualan Harian</h2>
+      <p class="desc">Grafik pergerakan omzet dan laba bersih.</p>
       <div id="chartView"></div>
     </div>
 
     <div class="cols">
       <div class="glass-card">
-        <h2>Ringkasan Analisis</h2>
-        <p class="desc">Insight otomatis berdasarkan transaksi.</p>
-        <ul class="ins" id="insightView"></ul>
+        <h2>Ringkasan Analisis & Smart Alerts</h2>
+        <p class="desc">Insight otomatis dan estimasi stok (Fitur 4).</p>
+        <ul class="ins" id="insightView" style="margin:0; padding:0; list-style:none;"></ul>
       </div>
       <div class="glass-card">
         <h2>Kontribusi Platform</h2>
@@ -354,14 +363,14 @@ input:focus, select:focus {
     </div>
 
     <div class="glass-card">
-      <h2>Produk Terlaris</h2>
-      <p class="desc">Diurutkan dari unit terjual.</p>
+      <h2>Produk Terlaris & Net Profit SKU</h2>
+      <p class="desc">Diurutkan dari unit terjual (Fitur 3: Termasuk Iklan Ads).</p>
       <div class="tw"><table id="topProductTable"></table></div>
     </div>
 
     <div class="glass-card">
-      <h2>Stok Gudang</h2>
-      <p class="desc">Sisa stok setelah penjualan.</p>
+      <h2>Stok Gudang & Estimasi Habis</h2>
+      <p class="desc">Prediksi tanggal restock berdasarkan kecepatan jualan.</p>
       <div class="tw"><table id="stokTable"></table></div>
     </div>
   </main>
@@ -370,7 +379,6 @@ input:focus, select:focus {
   <main id="jual" hidden>
     <div class="glass-card">
       <h2>Catat Penjualan Baru</h2>
-      <p class="desc">Tambah transaksi manual.</p>
       <form id="fJual" class="grid">
         <label>Tanggal<input type="date" id="jTgl" required></label>
         <label>Platform<select id="jPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select></label>
@@ -378,8 +386,9 @@ input:focus, select:focus {
         <label>Jumlah<input type="number" id="jQty" min="1" value="1" required></label>
         <label>Harga Jual / Unit (Rp)<input type="number" id="jHarga" min="0" required></label>
         <label>Biaya Platform (Rp)<input type="number" id="jBiaya" min="0" value="0"></label>
+        <label>Biaya Iklan/Ads SKU (Rp)<input type="number" id="jAds" min="0" value="0" placeholder="Biaya Iklan SKU"></label>
         <label>No. Pesanan (opsional)<input id="jOrder" placeholder="Dibuat otomatis"></label>
-        <div class="wide" style="display:flex; flex-direction:column; gap:10px; border-top:1px solid rgba(0,0,0,0.06); padding-top:12px; margin-top:4px;">
+        <div class="wide" style="display:flex; flex-direction:column; gap:10px; border-top:1px solid rgba(0,0,0,0.06); padding-top:12px;">
           <div id="jSum" style="font-size:13.5px; font-weight:500;"></div>
           <button class="btn" type="submit">Simpan Penjualan</button>
         </div>
@@ -388,12 +397,56 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Penjualan Terbaru</h2>
-      <p class="desc">10 transaksi terakhir.</p>
       <div class="tw"><table id="tJual"></table></div>
     </div>
   </main>
 
-  <!-- TAB 3: PRODUK DAN STOK -->
+  <!-- TAB 3: BIAYA OPERASIONAL (Fitur 1) -->
+  <main id="ops" hidden>
+    <div class="glass-card">
+      <h2>Catat Biaya Operasional / Pengeluaran Lain</h2>
+      <p class="desc">Masukkan pengeluaran di luar modal produk (Gaji, Dus Packing, Listrik, Iklan Umum).</p>
+      <form id="fOps" class="grid">
+        <label>Tanggal<input type="date" id="oTgl" required></label>
+        <label class="wide">Keterangan Pengeluaran<input id="oKet" placeholder="Contoh: Lakban & Beli Dus 50 Pcs" required></label>
+        <label>Kategori
+          <select id="oKat">
+            <option value="packing">Packing & Lakban</option>
+            <option value="gaji">Gaji / Insentif</option>
+            <option value="ads">Iklan / Ads Umum</option>
+            <option value="listrik">Listrik & Internet</option>
+            <option value="lain">Lain-lain</option>
+          </select>
+        </label>
+        <label>Nominal Biaya (Rp)<input type="number" id="oNom" min="0" required></label>
+        <div class="wide">
+          <button class="btn" type="submit">Simpan Pengeluaran</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="glass-card">
+      <h2>Daftar Pengeluaran Operasional</h2>
+      <div class="tw"><table id="tOps"></table></div>
+    </div>
+  </main>
+
+  <!-- TAB 4: SIMULASI MARGIN & DISKON (Fitur 3) -->
+  <main id="sim" hidden>
+    <div class="glass-card">
+      <h2>Kalkulator Diskon & Margin Flash Sale</h2>
+      <p class="desc">Hitung apakah harga diskon promo Anda masih memberikan margin untung aman.</p>
+      <div class="grid">
+        <label class="wide">Pilih Produk<select id="sSku" onchange="hitungSimulasi()"></select></label>
+        <label>Harga Normal (Rp)<input type="number" id="sHargaAwal" oninput="hitungSimulasi()"></label>
+        <label>Rencana Diskon (%)<input type="number" id="sDiskon" value="10" oninput="hitungSimulasi()"></label>
+        <label>Estimasi Biaya Platform (%)<input type="number" id="sFee" value="8" oninput="hitungSimulasi()"></label>
+        <div class="wide" id="simResult" style="background:rgba(255,255,255,0.8); border:1px solid var(--glass-border); padding:16px; border-radius:14px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- TAB 5: PRODUK DAN STOK -->
   <main id="produk" hidden>
     <div class="glass-card">
       <h2>Kelola Produk & Stok</h2>
@@ -417,11 +470,21 @@ input:focus, select:focus {
     </div>
   </main>
 
-  <!-- TAB 4: IMPOR CSV -->
+  <!-- TAB 6: BACKUP & IMPOR CSV (Fitur 2 & 5) -->
   <main id="impor" hidden>
     <div class="glass-card">
-      <h2>Impor Laporan CSV</h2>
-      <p class="desc">Pilih file CSV laporan pesanan.</p>
+      <h2>Cadangkan & Pulihkan Data JSON (Fitur 2 & 5)</h2>
+      <p class="desc">Pindahkan data antar perangkat atau amankan dari hilangnya cache browser.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn" onclick="backupJSON()">📥 Download Backup (JSON)</button>
+        <button class="btn ghost" onclick="$('jsonFile').click()">📤 Restore Data (JSON)</button>
+        <input type="file" id="jsonFile" accept=".json" onchange="restoreJSON(event)" hidden>
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <h2>Impor Laporan CSV Marketplace</h2>
+      <p class="desc">Pilih file CSV laporan pesanan dari Shopee/Tokopedia.</p>
       <label style="max-width:100%">Platform
         <select id="iPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select>
       </label>
@@ -433,7 +496,7 @@ input:focus, select:focus {
 <div id="toast" role="status"></div>
 
 <script>
-// --- INITIAL DATA ---
+// --- INITIAL DATA STORE ---
 const INITIAL_DATA = {
   produk: [
     { sku: "KRP-01", nama_produk: "Keripik Singkong Original", harga_modal: 8000, harga_jual: 15000, stok_awal: 100, stok_minimum: 15 },
@@ -441,29 +504,29 @@ const INITIAL_DATA = {
     { sku: "BNS-01", nama_produk: "Banana Crispy Cokelat", harga_modal: 12000, harga_jual: 22000, stok_awal: 50, stok_minimum: 5 }
   ],
   shopee: [
-    { tanggal: "2026-10-20", order_id: "SPE001", sku: "KRP-01", jumlah: 5, harga_jual: 15000, biaya_platform: 3000 },
-    { tanggal: "2026-10-21", order_id: "SPE002", sku: "KRP-02", jumlah: 8, harga_jual: 16000, biaya_platform: 5000 },
-    { tanggal: "2026-10-22", order_id: "SPE003", sku: "BNS-01", jumlah: 4, harga_jual: 22000, biaya_platform: 3500 }
+    { tanggal: "2026-10-20", order_id: "SPE001", sku: "KRP-01", jumlah: 5, harga_jual: 15000, biaya_platform: 3000, biaya_ads: 2000 },
+    { tanggal: "2026-10-21", order_id: "SPE002", sku: "KRP-02", jumlah: 8, harga_jual: 16000, biaya_platform: 5000, biaya_ads: 3000 }
   ],
   tokopedia: [
-    { tanggal: "2026-10-20", order_id: "TKP001", sku: "KRP-01", jumlah: 3, harga_jual: 15000, biaya_platform: 2000 },
-    { tanggal: "2026-10-22", order_id: "TKP002", sku: "KRP-02", jumlah: 6, harga_jual: 16000, biaya_platform: 4000 }
+    { tanggal: "2026-10-20", order_id: "TKP001", sku: "KRP-01", jumlah: 3, harga_jual: 15000, biaya_platform: 2000, biaya_ads: 0 }
+  ],
+  operasional: [
+    { tanggal: "2026-10-21", keterangan: "Lakban & Dus Bubble", kategori: "packing", nominal: 15000 }
   ]
 };
 
 function loadStore() {
-  const local = localStorage.getItem("umkm_dashboard_data");
+  const local = localStorage.getItem("umkm_dashboard_data_v2");
   return local ? JSON.parse(local) : INITIAL_DATA;
 }
 
 function saveStore(data) {
-  localStorage.setItem("umkm_dashboard_data", JSON.stringify(data));
+  localStorage.setItem("umkm_dashboard_data_v2", JSON.stringify(data));
   renderAll();
 }
 
 let STORE = loadStore();
 
-// --- HELPERS ---
 const $ = id => document.getElementById(id);
 const rp = n => "Rp " + Math.round(+n || 0).toLocaleString("id-ID");
 const num = n => Math.round(+n || 0).toLocaleString("id-ID");
@@ -477,7 +540,7 @@ function toast(msg, isErr = false) {
   setTimeout(() => t.className = "", 3000);
 }
 
-// --- CORE ANALYTICS ---
+// --- ENGINE ANALISIS PERHITUNGAN ---
 function analyzeData(filterPlatform = "semua") {
   const produkMap = {};
   STORE.produk.forEach(p => {
@@ -498,32 +561,33 @@ function analyzeData(filterPlatform = "semua") {
       const omzet = jumlah * (+r.harga_jual);
       const modal = jumlah * produkMap[r.sku].modal;
       const biaya = +r.biaya_platform || 0;
+      const ads = +r.biaya_ads || 0;
       allTx.push({
         tanggal: r.tanggal,
         order_id: r.order_id,
         platform: pf,
         sku: r.sku,
-        jumlah: jumlah,
-        omzet: omzet,
-        modal: modal,
-        biaya: biaya,
-        laba: omzet - modal - biaya
+        jumlah, omzet, modal, biaya, ads,
+        laba: omzet - modal - biaya - ads
       });
     });
   });
 
   allTx.sort((a,b) => a.tanggal.localeCompare(b.tanggal));
-
   const dates = [...new Set(allTx.map(t => t.tanggal))].sort();
   const startDate = dates[0] || new Date().toISOString().split("T")[0];
   const endDate = dates[dates.length - 1] || startDate;
 
-  const omzet = allTx.reduce((s, r) => s + r.omzet, 0);
-  const laba = allTx.reduce((s, r) => s + r.laba, 0);
-  const modal = allTx.reduce((s, r) => s + r.modal, 0);
-  const unit = allTx.reduce((s, r) => s + r.jumlah, 0);
-  const orderCount = new Set(allTx.map(r => r.platform + r.order_id)).size;
+  const omzetKotor = allTx.reduce((s, r) => s + r.omzet, 0);
+  const totalModal = allTx.reduce((s, r) => s + r.modal, 0);
+  const totalFeePlatform = allTx.reduce((s, r) => s + r.biaya, 0);
+  const totalAdsSKU = allTx.reduce((s, r) => s + r.ads, 0);
+  
+  // Total Operasional (Fitur 1)
+  const totalOpsLain = (STORE.operasional || []).reduce((s, r) => s + (+r.nominal), 0);
+  const labaBersihTotal = omzetKotor - totalModal - totalFeePlatform - totalAdsSKU - totalOpsLain;
 
+  // Analysis Produk
   const prodAgg = {};
   Object.keys(produkMap).forEach(sku => prodAgg[sku] = { unit: 0, omzet: 0, laba: 0 });
   allTx.forEach(r => {
@@ -542,18 +606,9 @@ function analyzeData(filterPlatform = "semua") {
       laba: a.laba,
       margin: a.omzet ? Math.round((a.laba / a.omzet) * 1000) / 10 : 0
     };
-  }).sort((a,b) => b.unit - a.unit || b.laba - a.laba);
+  }).sort((a,b) => b.unit - a.unit);
 
-  const tren = dates.map(d => {
-    const dayRows = allTx.filter(r => r.tanggal === d);
-    return {
-      tanggal: d,
-      omzet: dayRows.reduce((s, r) => s + r.omzet, 0),
-      laba: dayRows.reduce((s, r) => s + r.laba, 0),
-      unit: dayRows.reduce((s, r) => s + r.jumlah, 0)
-    };
-  });
-
+  // Stok & Prediksi Waktu Restock (Fitur 4)
   const totalTerjualMap = {};
   ["shopee", "tokopedia"].forEach(pf => {
     (STORE[pf] || []).forEach(r => {
@@ -571,21 +626,27 @@ function analyzeData(filterPlatform = "semua") {
     if (sisa <= 0) status = "habis";
     else if (sisa <= p.stok_min) status = "menipis";
 
+    let tglHabisStr = "-";
+    if (rata > 0 && sisa > 0) {
+      const sisaHari = Math.round(sisa / rata);
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + sisaHari);
+      tglHabisStr = `${sisaHari} hr (${targetDate.toLocaleDateString("id-ID", {day:"numeric", month:"short"})})`;
+    }
+
     return {
       sku,
       nama: p.nama,
       stok_awal: p.stok_awal,
       terjual,
       sisa,
-      hari_habis: (rata > 0 && sisa > 0) ? Math.round(sisa / rata) : null,
+      est_habis: tglHabisStr,
       nilai_stok: Math.max(sisa, 0) * p.modal,
       status
     };
-  }).sort((a,b) => {
-    const order = { habis: 0, menipis: 1, aman: 2 };
-    return order[a.status] - order[b.status] || a.sisa - b.sisa;
-  });
+  }).sort((a,b) => (a.status === "habis" ? -1 : 1));
 
+  // Platform Breakdown
   const platformBreakdown = ["shopee", "tokopedia"].map(pf => {
     const rows = allTx.filter(r => r.platform === pf);
     return {
@@ -596,24 +657,25 @@ function analyzeData(filterPlatform = "semua") {
     };
   });
 
-  const insights = [];
-  if (produkRank.length && produkRank[0].unit > 0) {
-    insights.push(`${produkRank[0].nama} paling laku (${produkRank[0].unit} unit terjual).`);
-  }
-  const restock = stokList.filter(s => s.status !== "aman").map(s => s.nama);
-  if (restock.length) {
-    insights.push(`Perlu restock: ${restock.join(", ")}.`);
-  }
-
   return {
     periode: { awal: startDate, akhir: endDate, hari: daysCount },
-    ringkasan: { omzet, laba, modal, unit, order: orderCount, margin: omzet ? Math.round((laba/omzet)*1000)/10 : 0 },
+    ringkasan: { 
+      omzet: omzetKotor, 
+      laba: labaBersihTotal, 
+      opsLain: totalOpsLain,
+      unit: allTx.reduce((s, r) => s + r.jumlah, 0), 
+      order: new Set(allTx.map(r => r.platform + r.order_id)).size,
+      margin: omzetKotor ? Math.round((labaBersihTotal / omzetKotor) * 1000) / 10 : 0
+    },
     produk: produkRank,
-    tren,
+    tren: dates.map(d => ({
+      tanggal: d,
+      omzet: allTx.filter(r => r.tanggal === d).reduce((s, r) => s + r.omzet, 0),
+      laba: allTx.filter(r => r.tanggal === d).reduce((s, r) => s + r.laba, 0)
+    })),
     stok: stokList,
     platform: platformBreakdown,
-    nilai_stok_total: stokList.reduce((s, r) => s + r.nilai_stok, 0),
-    insight: insights
+    nilai_stok_total: stokList.reduce((s, r) => s + r.nilai_stok, 0)
   };
 }
 
@@ -627,29 +689,43 @@ function renderDashboard() {
 
   $("headerSub").textContent = `${tgl(p.awal)} - ${tgl(p.akhir)} · ${p.hari} Hari Transaksi`;
 
+  // Render Smart Alert Banner (Fitur 4)
+  const habisItem = data.stok.filter(s => s.status !== "aman");
+  if (habisItem.length) {
+    $("alertContainer").innerHTML = `
+      <div class="alert-banner">
+        <span>⚠️ <b>Perhatian Restock:</b> Terdapat ${habisItem.length} produk menipis/habis (${habisItem.map(i => i.nama).join(", ")}).</span>
+        <button class="btn sm" onclick="document.querySelector('[data-t=produk]').click()">Kelola Stok</button>
+      </div>`;
+  } else {
+    $("alertContainer").innerHTML = "";
+  }
+
+  // KPI
   $("kpiStrip").innerHTML = `
     <div class="kpi-card">
-      <div class="lbl">Omzet Total</div>
+      <div class="lbl">Omzet Kotor</div>
       <div class="val">${rp(R.omzet)}</div>
-      <div class="hint">${num(R.order)} pesanan</div>
+      <div class="hint">${num(R.order)} total order</div>
     </div>
     <div class="kpi-card">
-      <div class="lbl">Laba Bersih</div>
-      <div class="val big">${rp(R.laba)}</div>
-      <div class="hint">Margin ${R.margin}%</div>
+      <div class="lbl">Laba Bersih Akhir</div>
+      <div class="val green">${rp(R.laba)}</div>
+      <div class="hint">Margin ${R.margin}% (Nett)</div>
     </div>
     <div class="kpi-card">
-      <div class="lbl">Unit Terjual</div>
-      <div class="val">${num(R.unit)}</div>
-      <div class="hint">Modal ${rp(R.modal)}</div>
+      <div class="lbl">Biaya Operasional</div>
+      <div class="val" style="color:var(--status-red);">${rp(R.opsLain)}</div>
+      <div class="hint">Biaya diluar modal</div>
     </div>
     <div class="kpi-card">
       <div class="lbl">Nilai Stok Gudang</div>
       <div class="val">${rp(data.nilai_stok_total)}</div>
-      <div class="hint">HPP Modal</div>
+      <div class="hint">Estimasi HPP Modal</div>
     </div>
   `;
 
+  // SVG Chart
   if (data.tren.length) {
     const W = 640, H = 160, n = data.tren.length, bw = W / n;
     const mx = Math.max(1, ...data.tren.map(d => d.omzet));
@@ -666,58 +742,74 @@ function renderDashboard() {
     $("chartView").innerHTML = `<p class="desc">Belum ada data transaksi.</p>`;
   }
 
-  $("insightView").innerHTML = data.insight.map(i => `<li>${esc(i)}</li>`).join("") || "<li>Stok & penjualan terpantau aman.</li>";
+  // Insights
+  const ins = [];
+  if (data.produk.length) ins.push(`Produk paling laris: <b>${data.produk[0].nama}</b> (${data.produk[0].unit} unit).`);
+  ins.push(`Total pengeluaran operasional non-produk: <b>${rp(R.opsLain)}</b>.`);
+  $("insightView").innerHTML = ins.map(i => `<li style="padding:6px 0;">${i}</li>`).join("");
 
+  // Platforms
   const mxPf = Math.max(1, ...data.platform.map(p => p.omzet));
   $("pfView").innerHTML = data.platform.map(x => `
-    <div class="pf">
-      <div class="row"><b>${x.nama}</b><span>${rp(x.laba)} laba</span></div>
-      <div class="track"><i style="width:${(x.omzet / mxPf) * 100}%"></i></div>
-      <div class="hint">Omzet ${rp(x.omzet)} · ${num(x.unit)} unit</div>
+    <div style="margin-bottom:12px;">
+      <div style="display:flex; justify-size:space-between; font-size:13px; margin-bottom:4px;"><b>${x.nama}</b><span>${rp(x.laba)} laba</span></div>
+      <div style="height:8px; background:rgba(0,0,0,0.06); border-radius:4px; overflow:hidden;"><div style="height:100%; width:${(x.omzet/mxPf)*100}%; background:var(--accent-purple);"></div></div>
     </div>
   `).join("");
 
-  const mxUnit = Math.max(1, ...data.produk.map(p => p.unit));
-  $("topProductTable").innerHTML = `<thead><tr><th>Produk</th><th>Terjual</th><th class="r">Omzet</th><th class="r">Laba</th><th class="r">Margin</th></tr></thead><tbody>` +
-    data.produk.map((x, i) => `<tr class="${i === 0 ? "top" : ""}">
+  // Top Products
+  $("topProductTable").innerHTML = `<thead><tr><th>Produk</th><th>Terjual</th><th class="r">Omzet</th><th class="r">Nett Laba</th><th class="r">Margin</th></tr></thead><tbody>` +
+    data.produk.map(x => `<tr>
       <td><b>${esc(x.nama)}</b></td>
-      <td>${num(x.unit)}<span class="bar" style="width:${(x.unit / mxUnit) * 50}px"></span></td>
+      <td>${num(x.unit)}</td>
       <td class="r">${rp(x.omzet)}</td>
       <td class="r">${rp(x.laba)}</td>
       <td class="r">${x.margin}%</td>
     </tr>`).join("") + `</tbody>`;
 
-  $("stokTable").innerHTML = `<thead><tr><th>Produk</th><th class="r">Stok Awal</th><th class="r">Terjual</th><th class="r">Sisa</th><th class="r">Status</th></tr></thead><tbody>` +
+  // Stok Table
+  $("stokTable").innerHTML = `<thead><tr><th>Produk</th><th class="r">Sisa Stok</th><th class="r">Est. Habis</th><th class="r">Status</th></tr></thead><tbody>` +
     data.stok.map(s => `<tr>
       <td><b>${esc(s.nama)}</b></td>
-      <td class="r">${num(s.stok_awal)}</td>
-      <td class="r">${num(s.terjual)}</td>
       <td class="r"><b>${num(Math.max(s.sisa, 0))}</b></td>
+      <td class="r">${s.est_habis}</td>
       <td class="r"><span class="pill ${s.status}">${s.status}</span></td>
     </tr>`).join("") + `</tbody>`;
 }
 
-// --- FORMS & ACTIONS ---
+// --- FORMS & TABLES RENDER ---
 function renderForms() {
   $("jSku").innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)} (${esc(p.sku)})</option>`).join("");
+  $("sSku").innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)}</option>`).join("");
 
+  // Penjualan Table
   const allSales = [];
   ["shopee", "tokopedia"].forEach(pf => {
     (STORE[pf] || []).forEach((r, i) => allSales.push({...r, pf, i}));
   });
   allSales.sort((a,b) => b.tanggal.localeCompare(a.tanggal));
 
-  $("tJual").innerHTML = allSales.length
-    ? `<thead><tr><th>Tanggal</th><th>Platform</th><th>SKU</th><th class="r">Harga</th><th class="r">Aksi</th></tr></thead><tbody>` +
-      allSales.slice(0, 10).map(r => `<tr>
-        <td>${r.tanggal}</td>
-        <td><span class="pill aman">${r.pf}</span></td>
-        <td>${esc(r.sku)}</td>
-        <td class="r">${rp(r.harga_jual)}</td>
-        <td class="r"><button class="btn ghost sm" onclick="hapusPenjualan('${r.pf}', ${r.i})">Hapus</button></td>
-      </tr>`).join("") + `</tbody>`
-    : `<tbody><tr><td colspan="5">Belum ada penjualan.</td></tr></tbody>`;
+  $("tJual").innerHTML = `<thead><tr><th>Tanggal</th><th>PF</th><th>SKU</th><th class="r">Harga</th><th class="r">Ads</th><th class="r">Aksi</th></tr></thead><tbody>` +
+    allSales.slice(0, 10).map(r => `<tr>
+      <td>${r.tanggal}</td>
+      <td><span class="pill aman">${r.pf}</span></td>
+      <td>${esc(r.sku)}</td>
+      <td class="r">${rp(r.harga_jual)}</td>
+      <td class="r">${rp(r.biaya_ads || 0)}</td>
+      <td class="r"><button class="btn ghost sm" onclick="hapusPenjualan('${r.pf}', ${r.i})">Hapus</button></td>
+    </tr>`).join("") + `</tbody>`;
 
+  // Operasional Table (Fitur 1)
+  $("tOps").innerHTML = `<thead><tr><th>Tanggal</th><th>Keterangan</th><th>Kategori</th><th class="r">Nominal</th><th class="r">Aksi</th></tr></thead><tbody>` +
+    (STORE.operasional || []).map((o, i) => `<tr>
+      <td>${o.tanggal}</td>
+      <td><b>${esc(o.keterangan)}</b></td>
+      <td><span class="pill menipis">${o.kategori}</span></td>
+      <td class="r">${rp(o.nominal)}</td>
+      <td class="r"><button class="btn ghost sm" onclick="hapusOps(${i})">Hapus</button></td>
+    </tr>`).join("") + `</tbody>`;
+
+  // Produk Table
   $("tProduk").innerHTML = `<thead><tr><th>SKU</th><th>Nama Produk</th><th class="r">Modal</th><th class="r">Stok</th><th class="r">Aksi</th></tr></thead><tbody>` +
     STORE.produk.map(p => `<tr>
       <td><b>${esc(p.sku)}</b></td>
@@ -726,27 +818,40 @@ function renderForms() {
       <td class="r">${num(p.stok_awal)}</td>
       <td class="r"><button class="btn ghost sm" onclick="hapusProduk('${esc(p.sku)}')">Hapus</button></td>
     </tr>`).join("") + `</tbody>`;
+
+  hitungSimulasi();
 }
 
+// --- SUBMIT HANDLERS ---
 $("fJual").onsubmit = e => {
   e.preventDefault();
-  const pf = $("jPf").value, sku = $("jSku").value;
-  if (!sku) return toast("Pilih produk terlebih dahulu", true);
-
-  const orderId = $("jOrder").value.trim() || (pf === "shopee" ? "SPE" : "TKP") + Date.now().toString(36).toUpperCase();
+  const pf = $("jPf").value;
   STORE[pf].push({
     tanggal: $("jTgl").value,
-    order_id: orderId,
-    sku,
+    order_id: $("jOrder").value.trim() || "TX-" + Date.now().toString(36).toUpperCase(),
+    sku: $("jSku").value,
     jumlah: +$("jQty").value,
     harga_jual: +$("jHarga").value,
-    biaya_platform: +$("jBiaya").value || 0
+    biaya_platform: +$("jBiaya").value || 0,
+    biaya_ads: +$("jAds").value || 0
   });
-
   saveStore(STORE);
   toast("Penjualan disimpan!");
-  $("jQty").value = 1;
-  $("jOrder").value = "";
+};
+
+$("fOps").onsubmit = e => {
+  e.preventDefault();
+  if (!STORE.operasional) STORE.operasional = [];
+  STORE.operasional.push({
+    tanggal: $("oTgl").value,
+    keterangan: $("oKet").value.trim(),
+    kategori: $("oKat").value,
+    nominal: +$("oNom").value
+  });
+  saveStore(STORE);
+  toast("Pengeluaran operasional dicatat!");
+  $("fOps").reset();
+  $("oTgl").value = new Date().toISOString().split("T")[0];
 };
 
 $("fProduk").onsubmit = e => {
@@ -770,31 +875,97 @@ $("fProduk").onsubmit = e => {
   $("fProduk").reset();
 };
 
+// --- SIMULATOR DISKON & MARGIN (Fitur 3) ---
+function hitungSimulasi() {
+  const sku = $("sSku").value;
+  const prod = STORE.produk.find(p => p.sku === sku);
+  if (!prod) return;
+
+  if (!$("sHargaAwal").value) $("sHargaAwal").value = prod.harga_jual || prod.harga_modal * 1.5;
+
+  const hgAwal = +$("sHargaAwal").value;
+  const diskon = +$("sDiskon").value || 0;
+  const feePct = +$("sFee").value || 0;
+  const modal = prod.harga_modal;
+
+  const hgDiskon = hgAwal - (hgAwal * (diskon / 100));
+  const feeRp = hgDiskon * (feePct / 100);
+  const labaMargin = hgDiskon - modal - feeRp;
+  const marginPct = Math.round((labaMargin / hgDiskon) * 1000) / 10;
+
+  $("simResult").innerHTML = `
+    <div style="font-size:13px; color:var(--text-muted);">Hasil Simulasi Promo Flash Sale:</div>
+    <div style="font-size:16px; font-weight:700; margin-top:4px; color:${labaMargin > 0 ? 'var(--status-green)' : 'var(--status-red)'}">
+      Harga Promo: ${rp(hgDiskon)} (Diskon ${diskon}%)
+    </div>
+    <div style="font-size:13px; margin-top:4px;">
+      Estimasi Fee Platform: ${rp(feeRp)} | Modal (HPP): ${rp(modal)}<br>
+      <b>Potensi Laba/Unit: ${rp(labaMargin)} (Margin: ${marginPct}%)</b>
+    </div>
+  `;
+}
+
+// --- EKSPOR EXCEL & BACKUP JSON (Fitur 2 & 5) ---
+function exportDataExcel() {
+  let csv = "Tanggal,Platform,SKU,Jumlah,Harga Jual,Biaya Platform,Biaya Ads\n";
+  ["shopee", "tokopedia"].forEach(pf => {
+    (STORE[pf] || []).forEach(r => {
+      csv += `${r.tanggal},${pf},${r.sku},${r.jumlah},${r.harga_jual},${r.biaya_platform || 0},${r.biaya_ads || 0}\n`;
+    });
+  });
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `laporan_penjualan_umkm_${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+}
+
+function backupJSON() {
+  const blob = new Blob([JSON.stringify(STORE, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `backup_umkm_db_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+}
+
+function restoreJSON(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      const parsed = JSON.parse(evt.target.result);
+      if (parsed.produk && (parsed.shopee || parsed.tokopedia)) {
+        STORE = parsed;
+        saveStore(STORE);
+        toast("Data berhasil dipulihkan!");
+      } else throw new Error();
+    } catch (err) {
+      toast("File JSON tidak valid!", true);
+    }
+  };
+  reader.readAsText(file);
+}
+
 function hapusPenjualan(pf, idx) {
-  if (confirm("Hapus baris penjualan ini?")) {
-    STORE[pf].splice(idx, 1);
-    saveStore(STORE);
-    toast("Transaksi dihapus.");
-  }
+  if (confirm("Hapus baris ini?")) { STORE[pf].splice(idx, 1); saveStore(STORE); }
 }
-
+function hapusOps(idx) {
+  if (confirm("Hapus biaya operasional ini?")) { STORE.operasional.splice(idx, 1); saveStore(STORE); }
+}
 function hapusProduk(sku) {
-  if (confirm(`Hapus SKU ${sku}?`)) {
-    STORE.produk = STORE.produk.filter(p => p.sku !== sku);
-    saveStore(STORE);
-    toast("Produk dihapus.");
-  }
+  if (confirm(`Hapus SKU ${sku}?`)) { STORE.produk = STORE.produk.filter(p => p.sku !== sku); saveStore(STORE); }
 }
 
-$("pReset").onclick = () => $("fProduk").reset();
 $("jTgl").value = new Date().toISOString().split("T")[0];
+$("oTgl").value = new Date().toISOString().split("T")[0];
 
 $("navTabs").onclick = e => {
   if (e.target.tagName !== "BUTTON") return;
   document.querySelectorAll("#navTabs button").forEach(b => b.classList.remove("on"));
   e.target.classList.add("on");
   const target = e.target.dataset.t;
-  ["dash", "jual", "produk", "impor"].forEach(id => $(id).hidden = id !== target);
+  ["dash", "jual", "ops", "sim", "produk", "impor"].forEach(id => $(id).hidden = id !== target);
 };
 
 $("pfFilter").onclick = e => {
