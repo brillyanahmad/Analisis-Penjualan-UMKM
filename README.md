@@ -1,5 +1,7 @@
 # 📊 Dashboard Penjualan UMKM Pro
+
 by Brillyan Ahmad Adi Prayanto & Oky Rizky Nihar Pradana
+
 **Dashboard Penjualan UMKM Pro** adalah aplikasi manajemen bisnis dan analisis penjualan berbasis *web-based* yang dirancang khusus untuk pemilik UMKM, *online seller*, dan pebisnis multi-channel. Aplikasi ini membantu Anda mengelola, menganalisis, dan memantau performa penjualan dari berbagai platform e-commerce (seperti Shopee, Tokopedia, TikTok Shop, Lazada, offline, dll.) secara terpusat, fleksibel, dan mudah digunakan.
 
 Dikemas dengan antarmuka modern yang responsif, aplikasi ini siap digunakan langsung di peramban (browser) tanpa memerlukan instalasi rumit maupun server database eksternal.
