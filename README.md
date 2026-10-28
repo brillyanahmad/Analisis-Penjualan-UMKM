@@ -1,59 +1,85 @@
-# 📊 Dashboard Penjualan UMKM Pro
+📊 Dashboard Penjualan UMKM Pro
 
-by Brillyan Ahmad Adi Prayanto & Oky Rizky Nihar Pradana
+Dashboard Penjualan UMKM Pro adalah aplikasi web manajemen bisnis dan analisis keuangan terpadu yang dirancang untuk membantu pelaku UMKM mengelola transaksi multi-channel, memantau stok gudang, serta menganalisis keuntungan bersih secara presisi.
 
-**Dashboard Penjualan UMKM Pro** adalah aplikasi manajemen bisnis dan analisis penjualan berbasis *web-based* yang dirancang khusus untuk pemilik UMKM, *online seller*, dan pebisnis multi-channel. Aplikasi ini membantu Anda mengelola, menganalisis, dan memantau performa penjualan dari berbagai platform e-commerce (seperti Shopee, Tokopedia, TikTok Shop, Lazada, offline, dll.) secara terpusat, fleksibel, dan mudah digunakan.
+📌 a. Judul & Deskripsi
 
-Dikemas dengan antarmuka modern yang responsif, aplikasi ini siap digunakan langsung di peramban (browser) tanpa memerlukan instalasi rumit maupun server database eksternal.
+Nama Produk Digital: Dashboard Penjualan UMKM Pro
 
----
+Latar Belakang Masalah: Banyak pelaku UMKM yang berjualan di beberapa marketplace (Shopee, Tokopedia, TikTok Shop, dll.) kesulitan menghitung keuntungan bersih aktual (nett profit). Hal ini disebabkan oleh rumitnya akumulasi biaya admin platform, biaya iklan, modal HPP, serta pengeluaran operasional umum (seperti lakban, dus packing, dan gaji). Selain itu, sering terjadi kehabisan stok barang karena tidak adanya sistem peringatan dini (smart alert).
 
-## 🎯 Kegunaan & Manfaat Utama
+Target Pengguna: Pemilik UMKM, online seller multi-platform, pengelola toko ritel/online, dan wirausahawan muda.
 
-- **Manajemen Penjualan Multi-Platform (Dinamis):** Bebas menambah, mengubah, atau menghapus saluran penjualan sesuai dengan ekspansi bisnis Anda (Shopee, Tokopedia, TikTok Shop, WhatsApp, Toko Offline, dll.).
-- **Perhitungan Net Profit Otomatis:** Memperhitungkan HPP (Modal Produk), Biaya Layanan/Platform (Platform Fee), dan Biaya Iklan (Ads) per SKU sehingga Anda tahu keuntungan bersih (*nett profit*) yang sebenarnya.
-- **Manajemen Stok & Peringatan Dini (Smart Alert):** Menghitung estimasi sisa hari stok produk akan habis berdasarkan kecepatan penjualan harian (*sales velocity*) dan memberikan notifikasi otomatis jika stok mulai menipis.
-- **Kalkulator Diskon & Margin (Flash Sale Simulator):** Menguji skenario diskon promo sebelum diluncurkan untuk memastikan Anda tidak mengalami kerugian akibat potongan harga dan *fee* platform.
-- **Pencatatan Arus Kas Operasional:** Mengakomodasi pengeluaran non-produk (biaya *packing*, lakban, gaji karyawan, listrik, dll.) agar pembukuan keuangan bisnis menjadi presisi.
-- **Laporan & Cadangan Data Fleksibel:** Dukungan cetak laporan ke PDF, ekspor data transaksi ke file Excel/CSV, serta fitur *Backup & Restore* data (JSON) untuk keamanan penyimpanan internal.
+🛠️ b. Teknologi yang Digunakan
 
----
+Bahasa Pemrograman: HTML5, CSS3 (Modern CSS Variables & Glassmorphism Styling), JavaScript (Vanilla ES6+).
 
-## ✨ Fitur-Fitur Unggulan
+Modul / Pustaka: Native Browser Web APIs (DOM Manipulation, LocalStorage API, SVG Rendering, FileReader, Blob API).
 
-1. 📈 **Dashboard & Grafik Tren Real-Time**
-   - KPI Strip (Total Omzet, Laba Bersih, Biaya Operasional, Nilai Stok Gudang).
-   - Grafik SVG interaktif untuk memantau pergerakan harian omzet dan laba.
-   - Filter analisis gabungan (*Semua Platform*) atau per platform tertentu.
-   - Breakdown kontribusi penjualan dan persentase performa antar-platform.
+Platform Publikasi: GitHub Pages / Vercel / Netlify (Aplikasi Client-Side Standalone).
 
-2. 🛒 **Catat Penjualan Baru**
-   - Form pencatatan cepat transaksi harian.
-   - Perhitungan otomatis HPP, biaya admin platform, biaya iklan, dan estimasi laba per transaksi.
+🤖 c. Pemanfaatan AI (AI Usage Disclosure)
 
-3. 🏪 **Kelola Platform (Multi-Channel Manager)**
-   - Bebas menambah platform baru dengan nama kustom.
-   - Kelola saluran penjualan tanpa membatasi pilihan hanya pada Shopee dan Tokopedia.
+Alat AI yang Digunakan: Gemini (Google AI).
 
-4. 📦 **Master Produk & Prediksi Stok**
-   - Pengaturan HPP (Harga Modal), Harga Jual, Stok Awal, dan Batas Minimum Stok.
-   - Tabel proyeksi stok dengan indikator status (*Aman*, *Menipis*, *Habis*) dan estimasi tanggal restock.
+Contoh Perintah (Prompt) Utama:
 
-5. 💸 **Pencatatan Biaya Operasional**
-   - Catat pengeluaran tambahan di luar modal barang berdasarkan kategori (Packing, Gaji, Listrik, Iklan Umum, dll.).
+"Saya ingin membuat aplikasi web dashboard analisis penjualan untuk UMKM... Berikan masukan ide fitur dan arsitektur data yang efektif."
 
-6. 🧮 **Simulasi Diskon Promo**
-   - Hitung potensi margin keuntungan sebelum memasang harga promo di event *Flash Sale* atau promo tanggal kembar.
+"Buatkan struktur dasar HTML, CSS modern Glassmorphism, dan JavaScript untuk dashboard penjualan UMKM..."
 
-7. 📁 **Backup, Restore & Ekspor Data**
-   - **Ekspor CSV/Excel:** Mengunduh riwayat transaksi untuk pembukuan akuntansi.
-   - **Cetak PDF:** Cetak ringkasan dashboard secara langsung.
-   - **Backup & Restore (JSON):** Memindahkan data antar perangkat dengan aman tanpa takut kehilangan data akibat *clear cache* browser.
+"Tambahkan fitur dimana saya bisa mengurangi atau menambahkan platform lain, sehingga tidak hanya terpaku pada Shopee dan Tokopedia saja tanpa mengubah fitur yang lain."
 
----
+Penyesuaian / Perbaikan Mandiri:
 
-## 🚀 Fitur Teknis & Keunggulan
+Merancang skema data platform dinamis agar pengguna bebas menambah saluran penjualan seperti TikTok Shop, Lazada, WhatsApp, dan Toko Offline.
 
-- **Zero Dependency:** Dibangun menggunakan HTML, CSS, dan JavaScript murni (Vanilla JS) tanpa perlu *node_modules* atau library berat.
-- **Local Storage First:** Seluruh data disimpan secara aman di dalam browser pengguna (privasi data 100% terjaga di perangkat Anda).
-- **Responsive & Mobile Friendly:** Nyaman digunakan baik melalui Smartphone, Tablet, maupun Laptop/PC.
+Mengembangkan fungsi migrasi otomatis data dari versi penyimpanan lama ke versi baru tanpa mengganggu riwayat transaksi.
+
+Mengoptimalkan tampilan antarmuka agar responsive pada perangkat seluler/mobile.
+
+📖 d. Panduan Penggunaan
+
+Aplikasi ini dapat dijalankan langsung melalui peramban web (browser) tanpa perlu menginstal aplikasi tambahan.
+
+Akses Situs Web: Buka tautan aktif aplikasi pada link berikut:
+
+👉 https://brillyanahmad.github.io/Analisis-Penjualan-UMKM/
+
+Menjalankan Secara Lokal (Offline):
+
+Unduh atau klon repositori ini: https://github.com/brillyanahmad/Analisis-Penjualan-UMKM.git
+
+Buka berkas index.html dengan mengeklik ganda atau membukanya melalui Google Chrome, Mozilla Firefox, atau Microsoft Edge.
+
+Langkah Penggunaan Utama:
+
+Kelola Platform: Tambahkan saluran penjualan yang Anda miliki pada tab Kelola Platform.
+
+Kelola Produk: Masukkan data produk, harga modal (HPP), harga jual, dan stok awal pada tab Produk & Stok.
+
+Catat Penjualan: Masukkan transaksi harian pada tab Catat Penjualan.
+
+Arus Kas Ops: Catat biaya operasional tambahan (dus, lakban, listrik) pada tab Arus Kas Ops.
+
+Pantau Dashboard: Lihat analisis omzet, laba bersih, grafik tren, dan peringatan restock pada tab Dashboard.
+
+👤 e. Identitas Pengembang
+
+Nama Lengkap: Brillyan Ahmad Adi Prayanto
+
+Kelas: XI-3
+
+Jurusan: IPA, Informatika
+
+Asal Sekolah: SMAN 3 Jombang
+
+
+
+Nama Lengkap: Oky Rizky Nihar Pradana (partner)
+
+Kelas: XI-3
+
+Jurusan: IPA, Informatika
+
+Asal Sekolah: SMAN 3 Jombang
