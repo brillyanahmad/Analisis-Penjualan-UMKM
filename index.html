@@ -2,23 +2,22 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard Penjualan UMKM - Light Glassmorphism</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Dashboard Penjualan UMKM - Glassmorphism Mobile Friendly</title>
 <style>
 :root {
   --bg-main: #f3f6fc;
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-bg-hover: rgba(255, 255, 255, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.9);
-  --glass-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.07), 0 4px 12px 0 rgba(0, 0, 0, 0.02);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-hover: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 10px 30px 0 rgba(31, 38, 135, 0.06), 0 4px 12px 0 rgba(0, 0, 0, 0.02);
   
-  --text-primary: #1e293b;
+  --text-primary: #0f172a;
   --text-muted: #64748b;
   
   --accent-purple: #8b5cf6;
   --accent-blue: #3b82f6;
   --accent-cyan: #06b6d4;
-  --accent-emerald: #10b981;
   
   --status-green: #15803d;
   --status-green-bg: rgba(34, 197, 94, 0.15);
@@ -28,7 +27,7 @@
   --status-red-bg: rgba(239, 68, 68, 0.15);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -39,8 +38,8 @@ body {
   padding-bottom: 60px;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 15%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 85% 25%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
     radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%);
   background-attachment: fixed;
   font-variant-numeric: tabular-nums;
@@ -49,20 +48,20 @@ body {
 .wrap {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 36px 20px;
+  padding: 20px 16px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
@@ -73,8 +72,8 @@ h1 {
 
 .sub {
   color: var(--text-muted);
-  font-size: 13px;
-  margin-top: 4px;
+  font-size: 12.5px;
+  margin-top: 3px;
 }
 
 /* Glassmorphism Card Style */
@@ -83,63 +82,74 @@ h1 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 24px;
+  border-radius: 18px;
+  padding: 20px 16px;
   box-shadow: var(--glass-shadow);
-  margin-bottom: 28px;
-  transition: all 0.25 ease;
+  margin-bottom: 20px;
+  transition: all 0.25s ease;
   position: relative;
 }
 
-.glass-card:hover {
-  background: var(--glass-bg-hover);
-  box-shadow: 0 16px 36px rgba(31, 38, 135, 0.1);
+/* Tabs Nav Optimization (Horizontal Scroll for Mobile) */
+.nav-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
 }
 
-/* Tabs Nav */
+.nav-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .tabs-nav {
-  display: flex;
-  background: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   padding: 4px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  white-space: nowrap;
+  min-width: 100%;
 }
 
 .tabs-nav button {
   border: 0;
   background: none;
   color: var(--text-muted);
-  padding: 8px 18px;
+  padding: 10px 16px;
   font: inherit;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
 }
 
 .tabs-nav button.on {
   background: #ffffff;
   color: var(--accent-purple);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.18);
+  box-shadow: 0 3px 10px rgba(139, 92, 246, 0.18);
 }
 
-/* Strip KPI Cards */
+/* Strip KPI Cards Responsive Grid */
 .strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .kpi-card {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  border-radius: 18px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 16px 14px;
   box-shadow: var(--glass-shadow);
   position: relative;
   overflow: hidden;
@@ -152,57 +162,64 @@ h1 {
   background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
 }
 
-.lbl { color: var(--text-muted); font-size: 13px; font-weight: 500; }
-.val { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; color: #0f172a; }
+.lbl { color: var(--text-muted); font-size: 12px; font-weight: 500; }
+.val { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; color: #0f172a; word-break: break-all; }
 .val.big { color: var(--accent-purple); }
-.hint { color: var(--text-muted); font-size: 12.5px; margin-top: 2px; }
+.hint { color: var(--text-muted); font-size: 11.5px; margin-top: 2px; }
 
 /* Grid Layouts */
-.cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; }
+.cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
 
-h2 { font-size: 16px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
-.desc { color: var(--text-muted); font-size: 13px; margin: 0 0 16px; }
+h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+.desc { color: var(--text-muted); font-size: 12.5px; margin: 0 0 14px; }
 
-/* Tables */
-.tw { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th { text-align: left; font-weight: 600; color: var(--text-muted); font-size: 12.5px; padding: 0 12px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08); white-space: nowrap; }
-td { padding: 12px 12px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); white-space: nowrap; }
+/* Tables Responsive Wrapper */
+.tw { 
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+th { text-align: left; font-weight: 600; color: var(--text-muted); font-size: 12px; padding: 0 10px 10px 0; border-bottom: 1px solid rgba(0,0,0,0.08); white-space: nowrap; }
+td { padding: 12px 10px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); white-space: nowrap; }
 tr:last-child td { border-bottom: 0; }
 .r { text-align: right; padding-right: 0; } th.r { padding-right: 0; }
 td:last-child, th:last-child { padding-right: 0; }
 
-.bar { display: inline-block; vertical-align: middle; height: 6px; border-radius: 3px; background: var(--accent-purple); margin-left: 10px; opacity: 0.85; }
+.bar { display: inline-block; vertical-align: middle; height: 6px; border-radius: 3px; background: var(--accent-purple); margin-left: 8px; opacity: 0.85; }
 .top td:nth-child(2) { font-weight: 600; }
 
-.pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
+.pill { font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 99px; }
 .aman { background: var(--status-green-bg); color: var(--status-green); }
 .menipis { background: var(--status-amber-bg); color: var(--status-amber); }
 .habis { background: var(--status-red-bg); color: var(--status-red); }
 
 /* Progress Track */
-.pf { margin-bottom: 18px; } .pf:last-child { margin-bottom: 0; }
-.pf b { font-weight: 600; } .pf .row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+.pf { margin-bottom: 16px; } .pf:last-child { margin-bottom: 0; }
+.pf b { font-weight: 600; } .pf .row { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px; }
 .track { height: 8px; background: rgba(0,0,0,0.06); border-radius: 4px; overflow: hidden; }
 .track i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue)); }
 
 ul.ins { margin: 0; padding: 0; list-style: none; }
-ul.ins li { padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 14px; }
+ul.ins li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 13.5px; line-height: 1.4; }
 ul.ins li:last-child { border-bottom: 0; }
 
 /* Forms & Inputs */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px 16px; align-items: end; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: end; }
 .wide { grid-column: 1 / -1; }
-label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+label { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; color: var(--text-muted); font-weight: 500; }
 input, select {
   font: inherit;
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid #cbd5e1;
   border-radius: 12px;
-  padding: 9px 12px;
+  padding: 10px 12px;
   width: 100%;
   outline: none;
+  font-size: 14px;
   transition: all 0.2s ease;
 }
 input:focus, select:focus {
@@ -218,15 +235,16 @@ input:focus, select:focus {
   background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
   color: #fff;
   border-radius: 12px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
   transition: all 0.2s ease;
+  width: 100%;
 }
 .btn:hover { opacity: 0.95; transform: translateY(-1px); }
 .btn.ghost { background: #fff; color: var(--text-primary); border: 1px solid #cbd5e1; box-shadow: none; }
 .btn.ghost:hover { background: #f8fafc; }
-.btn.sm { padding: 4px 10px; font-size: 12.5px; font-weight: 500; }
+.btn.sm { padding: 6px 10px; font-size: 12px; font-weight: 500; width: auto; }
 
 .drop {
   display: flex;
@@ -235,40 +253,52 @@ input:focus, select:focus {
   text-align: center;
   border: 2px dashed #cbd5e1;
   border-radius: 14px;
-  padding: 36px 16px;
+  padding: 30px 16px;
   color: var(--text-muted);
   cursor: pointer;
   margin-top: 14px;
   background: rgba(255, 255, 255, 0.4);
-  transition: all 0.2s ease;
+  font-size: 13px;
 }
-.drop:hover { border-color: var(--accent-purple); background: rgba(139, 92, 246, 0.05); color: var(--accent-purple); }
 
 #toast {
   position: fixed;
   left: 50%;
-  bottom: 24px;
+  bottom: 20px;
   transform: translateX(-50%);
   background: #ffffff;
   color: var(--text-primary);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  padding: 12px 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 10px 18px;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
+  width: max-content;
+  max-width: 90vw;
+  text-align: center;
 }
-#toast.show { opacity: 1; transform: translateX(-50%) translateY(-5px); }
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
 #toast.err { border-left: 4px solid var(--status-red); }
 
 [hidden] { display: none !important; }
 
-@media(max-width:820px) {
-  .strip { grid-template-columns: 1fr 1fr; }
-  .cols { grid-template-columns: 1fr; }
+/* Desktop Responsive Enhancements */
+@media(min-width: 640px) {
+  .wrap { padding: 32px 20px; }
+  h1 { font-size: 26px; }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .btn { width: auto; }
+  .val { font-size: 24px; }
+}
+
+@media(min-width: 820px) {
+  .strip { grid-template-columns: repeat(4, 1fr); }
+  .cols { grid-template-columns: 1.6fr 1fr; gap: 24px; }
+  .glass-card { padding: 24px; }
 }
 </style>
 </head>
@@ -280,18 +310,22 @@ input:focus, select:focus {
       <h1>Penjualan UMKM</h1>
       <div class="sub" id="headerSub">Dashboard Analisis & Management Penjualan</div>
     </div>
+  </header>
+
+  <!-- Navigation Bar Horizontal Scroll Friendly -->
+  <div class="nav-scroll-wrapper" style="margin-bottom: 20px;">
     <div class="tabs-nav" id="navTabs">
       <button data-t="dash" class="on">Dashboard</button>
       <button data-t="jual">Catat Penjualan</button>
       <button data-t="produk">Produk & Stok</button>
       <button data-t="impor">Impor CSV</button>
     </div>
-  </header>
+  </div>
 
   <!-- TAB 1: DASHBOARD -->
   <main id="dash">
-    <div style="display:flex; justify-content:flex-end; margin-bottom:16px;">
-      <div class="tabs-nav" id="pfFilter">
+    <div class="nav-scroll-wrapper" style="margin-bottom:16px;">
+      <div class="tabs-nav" id="pfFilter" style="min-width: unset; width: 100%;">
         <button data-f="semua" class="on">Semua Platform</button>
         <button data-f="shopee">Shopee</button>
         <button data-f="tokopedia">Tokopedia</button>
@@ -302,14 +336,14 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Tren Harian</h2>
-      <p class="desc">Grafik omzet dan laba harian. Arahkan kursor ke batang untuk detail angka.</p>
+      <p class="desc">Grafik omzet dan laba harian.</p>
       <div id="chartView"></div>
     </div>
 
     <div class="cols">
       <div class="glass-card">
         <h2>Ringkasan Analisis</h2>
-        <p class="desc">Insight otomatis berdasarkan data transaksi terkini.</p>
+        <p class="desc">Insight otomatis berdasarkan transaksi.</p>
         <ul class="ins" id="insightView"></ul>
       </div>
       <div class="glass-card">
@@ -321,13 +355,13 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Produk Terlaris</h2>
-      <p class="desc">Diurutkan dari jumlah unit terjual.</p>
+      <p class="desc">Diurutkan dari unit terjual.</p>
       <div class="tw"><table id="topProductTable"></table></div>
     </div>
 
     <div class="glass-card">
       <h2>Stok Gudang</h2>
-      <p class="desc">Sisa stok dikurangi penjualan di semua platform. Item perlu restock muncul paling atas.</p>
+      <p class="desc">Sisa stok setelah penjualan.</p>
       <div class="tw"><table id="stokTable"></table></div>
     </div>
   </main>
@@ -336,7 +370,7 @@ input:focus, select:focus {
   <main id="jual" hidden>
     <div class="glass-card">
       <h2>Catat Penjualan Baru</h2>
-      <p class="desc">Tambah transaksi manual ke memori browser.</p>
+      <p class="desc">Tambah transaksi manual.</p>
       <form id="fJual" class="grid">
         <label>Tanggal<input type="date" id="jTgl" required></label>
         <label>Platform<select id="jPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select></label>
@@ -344,9 +378,9 @@ input:focus, select:focus {
         <label>Jumlah<input type="number" id="jQty" min="1" value="1" required></label>
         <label>Harga Jual / Unit (Rp)<input type="number" id="jHarga" min="0" required></label>
         <label>Biaya Platform (Rp)<input type="number" id="jBiaya" min="0" value="0"></label>
-        <label>No. Pesanan (opsional)<input id="jOrder" placeholder="Dibuat otomatis jika kosong"></label>
-        <div class="wide" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(0,0,0,0.06); padding-top:12px; margin-top:8px;">
-          <div id="jSum" style="font-size:14px; font-weight:500;"></div>
+        <label>No. Pesanan (opsional)<input id="jOrder" placeholder="Dibuat otomatis"></label>
+        <div class="wide" style="display:flex; flex-direction:column; gap:10px; border-top:1px solid rgba(0,0,0,0.06); padding-top:12px; margin-top:4px;">
+          <div id="jSum" style="font-size:13.5px; font-weight:500;"></div>
           <button class="btn" type="submit">Simpan Penjualan</button>
         </div>
       </form>
@@ -354,7 +388,7 @@ input:focus, select:focus {
 
     <div class="glass-card">
       <h2>Penjualan Terbaru</h2>
-      <p class="desc">10 transaksi terakhir yang tercatat.</p>
+      <p class="desc">10 transaksi terakhir.</p>
       <div class="tw"><table id="tJual"></table></div>
     </div>
   </main>
@@ -362,7 +396,7 @@ input:focus, select:focus {
   <!-- TAB 3: PRODUK DAN STOK -->
   <main id="produk" hidden>
     <div class="glass-card">
-      <h2>Kelola Produk & Stok Awal</h2>
+      <h2>Kelola Produk & Stok</h2>
       <form id="fProduk" class="grid">
         <label>SKU<input id="pSku" required placeholder="Contoh: KRP-01"></label>
         <label class="wide">Nama Produk<input id="pNama" required placeholder="Nama lengkap produk"></label>
@@ -370,7 +404,7 @@ input:focus, select:focus {
         <label>Harga Jual (Rp)<input type="number" id="pJual" min="0"></label>
         <label>Stok Awal<input type="number" id="pStok" min="0" required value="0"></label>
         <label>Batas Stok Menipis<input type="number" id="pMin" min="0" required value="10"></label>
-        <div class="wide" style="display:flex; gap:10px; margin-top:8px;">
+        <div class="wide" style="display:flex; gap:10px; margin-top:6px;">
           <button class="btn" type="submit">Simpan Produk</button>
           <button type="button" class="btn ghost" id="pReset">Kosongkan</button>
         </div>
@@ -378,7 +412,7 @@ input:focus, select:focus {
     </div>
 
     <div class="glass-card">
-      <h2>Daftar Master Produk</h2>
+      <h2>Master Produk</h2>
       <div class="tw"><table id="tProduk"></table></div>
     </div>
   </main>
@@ -386,12 +420,12 @@ input:focus, select:focus {
   <!-- TAB 4: IMPOR CSV -->
   <main id="impor" hidden>
     <div class="glass-card">
-      <h2>Impor dari CSV Shopee / Tokopedia</h2>
-      <p class="desc">Pilih file CSV laporan pesanan dari Seller Center.</p>
-      <label style="max-width:240px">Platform
+      <h2>Impor Laporan CSV</h2>
+      <p class="desc">Pilih file CSV laporan pesanan.</p>
+      <label style="max-width:100%">Platform
         <select id="iPf"><option value="shopee">Shopee</option><option value="tokopedia">Tokopedia</option></select>
       </label>
-      <div class="drop" id="dropArea">Tarik file CSV ke sini atau klik untuk memilih file<input type="file" id="iFile" accept=".csv,text/csv" hidden></div>
+      <div class="drop" id="dropArea">Tarik file CSV ke sini atau tap untuk memilih file<input type="file" id="iFile" accept=".csv,text/csv" hidden></div>
     </div>
   </main>
 </div>
@@ -399,7 +433,7 @@ input:focus, select:focus {
 <div id="toast" role="status"></div>
 
 <script>
-// --- INITIAL DEFAULT DATA ---
+// --- INITIAL DATA ---
 const INITIAL_DATA = {
   produk: [
     { sku: "KRP-01", nama_produk: "Keripik Singkong Original", harga_modal: 8000, harga_jual: 15000, stok_awal: 100, stok_minimum: 15 },
@@ -417,7 +451,6 @@ const INITIAL_DATA = {
   ]
 };
 
-// --- DATA ENGINE ---
 function loadStore() {
   const local = localStorage.getItem("umkm_dashboard_data");
   return local ? JSON.parse(local) : INITIAL_DATA;
@@ -444,7 +477,7 @@ function toast(msg, isErr = false) {
   setTimeout(() => t.className = "", 3000);
 }
 
-// --- CORE ANALYTICS ENGINE (Replaces analisis.py) ---
+// --- CORE ANALYTICS ---
 function analyzeData(filterPlatform = "semua") {
   const produkMap = {};
   STORE.produk.forEach(p => {
@@ -481,19 +514,16 @@ function analyzeData(filterPlatform = "semua") {
 
   allTx.sort((a,b) => a.tanggal.localeCompare(b.tanggal));
 
-  // Dates Range
   const dates = [...new Set(allTx.map(t => t.tanggal))].sort();
   const startDate = dates[0] || new Date().toISOString().split("T")[0];
   const endDate = dates[dates.length - 1] || startDate;
 
-  // Ringkasan
   const omzet = allTx.reduce((s, r) => s + r.omzet, 0);
   const laba = allTx.reduce((s, r) => s + r.laba, 0);
   const modal = allTx.reduce((s, r) => s + r.modal, 0);
   const unit = allTx.reduce((s, r) => s + r.jumlah, 0);
   const orderCount = new Set(allTx.map(r => r.platform + r.order_id)).size;
 
-  // Produk Analysis
   const prodAgg = {};
   Object.keys(produkMap).forEach(sku => prodAgg[sku] = { unit: 0, omzet: 0, laba: 0 });
   allTx.forEach(r => {
@@ -514,7 +544,6 @@ function analyzeData(filterPlatform = "semua") {
     };
   }).sort((a,b) => b.unit - a.unit || b.laba - a.laba);
 
-  // Tren Harian
   const tren = dates.map(d => {
     const dayRows = allTx.filter(r => r.tanggal === d);
     return {
@@ -525,7 +554,6 @@ function analyzeData(filterPlatform = "semua") {
     };
   });
 
-  // Stok Gudang Analysis
   const totalTerjualMap = {};
   ["shopee", "tokopedia"].forEach(pf => {
     (STORE[pf] || []).forEach(r => {
@@ -558,28 +586,23 @@ function analyzeData(filterPlatform = "semua") {
     return order[a.status] - order[b.status] || a.sisa - b.sisa;
   });
 
-  // Platforms Breakdown
   const platformBreakdown = ["shopee", "tokopedia"].map(pf => {
     const rows = allTx.filter(r => r.platform === pf);
-    const pOmzet = rows.reduce((s, r) => s + r.omzet, 0);
-    const pLaba = rows.reduce((s, r) => s + r.laba, 0);
-    const pUnit = rows.reduce((s, r) => s + r.jumlah, 0);
     return {
       nama: pf === "shopee" ? "Shopee" : "Tokopedia",
-      omzet: pOmzet,
-      laba: pLaba,
-      unit: pUnit
+      omzet: rows.reduce((s, r) => s + r.omzet, 0),
+      laba: rows.reduce((s, r) => s + r.laba, 0),
+      unit: rows.reduce((s, r) => s + r.jumlah, 0)
     };
   });
 
-  // Insight
   const insights = [];
   if (produkRank.length && produkRank[0].unit > 0) {
-    insights.push(`${produkRank[0].nama} paling laku dengan ${produkRank[0].unit} unit terjual (laba ${rp(produkRank[0].laba)}).`);
+    insights.push(`${produkRank[0].nama} paling laku (${produkRank[0].unit} unit terjual).`);
   }
   const restock = stokList.filter(s => s.status !== "aman").map(s => s.nama);
   if (restock.length) {
-    insights.push(`Perlu restock segera: ${restock.join(", ")}.`);
+    insights.push(`Perlu restock: ${restock.join(", ")}.`);
   }
 
   return {
@@ -604,7 +627,6 @@ function renderDashboard() {
 
   $("headerSub").textContent = `${tgl(p.awal)} - ${tgl(p.akhir)} · ${p.hari} Hari Transaksi`;
 
-  // Strip Cards
   $("kpiStrip").innerHTML = `
     <div class="kpi-card">
       <div class="lbl">Omzet Total</div>
@@ -624,11 +646,10 @@ function renderDashboard() {
     <div class="kpi-card">
       <div class="lbl">Nilai Stok Gudang</div>
       <div class="val">${rp(data.nilai_stok_total)}</div>
-      <div class="hint">Berdasarkan HPP Modal</div>
+      <div class="hint">HPP Modal</div>
     </div>
   `;
 
-  // SVG Chart
   if (data.tren.length) {
     const W = 640, H = 160, n = data.tren.length, bw = W / n;
     const mx = Math.max(1, ...data.tren.map(d => d.omzet));
@@ -645,10 +666,8 @@ function renderDashboard() {
     $("chartView").innerHTML = `<p class="desc">Belum ada data transaksi.</p>`;
   }
 
-  // Insight
-  $("insightView").innerHTML = data.insight.map(i => `<li>${esc(i)}</li>`).join("") || "<li>Semua stok dan penjualan terpantau aman.</li>";
+  $("insightView").innerHTML = data.insight.map(i => `<li>${esc(i)}</li>`).join("") || "<li>Stok & penjualan terpantau aman.</li>";
 
-  // Platform
   const mxPf = Math.max(1, ...data.platform.map(p => p.omzet));
   $("pfView").innerHTML = data.platform.map(x => `
     <div class="pf">
@@ -658,34 +677,29 @@ function renderDashboard() {
     </div>
   `).join("");
 
-  // Top Products
   const mxUnit = Math.max(1, ...data.produk.map(p => p.unit));
   $("topProductTable").innerHTML = `<thead><tr><th>Produk</th><th>Terjual</th><th class="r">Omzet</th><th class="r">Laba</th><th class="r">Margin</th></tr></thead><tbody>` +
     data.produk.map((x, i) => `<tr class="${i === 0 ? "top" : ""}">
       <td><b>${esc(x.nama)}</b></td>
-      <td>${num(x.unit)}<span class="bar" style="width:${(x.unit / mxUnit) * 80}px"></span></td>
+      <td>${num(x.unit)}<span class="bar" style="width:${(x.unit / mxUnit) * 50}px"></span></td>
       <td class="r">${rp(x.omzet)}</td>
       <td class="r">${rp(x.laba)}</td>
       <td class="r">${x.margin}%</td>
     </tr>`).join("") + `</tbody>`;
 
-  // Stok Gudang
-  $("stokTable").innerHTML = `<thead><tr><th>Produk</th><th class="r">Stok Awal</th><th class="r">Terjual</th><th class="r">Sisa Stok</th><th class="r">Est. Habis</th><th class="r">Nilai Stok</th><th class="r">Status</th></tr></thead><tbody>` +
+  $("stokTable").innerHTML = `<thead><tr><th>Produk</th><th class="r">Stok Awal</th><th class="r">Terjual</th><th class="r">Sisa</th><th class="r">Status</th></tr></thead><tbody>` +
     data.stok.map(s => `<tr>
       <td><b>${esc(s.nama)}</b></td>
       <td class="r">${num(s.stok_awal)}</td>
       <td class="r">${num(s.terjual)}</td>
       <td class="r"><b>${num(Math.max(s.sisa, 0))}</b></td>
-      <td class="r">${s.hari_habis === null ? "-" : s.hari_habis + " hari"}</td>
-      <td class="r">${rp(s.nilai_stok)}</td>
       <td class="r"><span class="pill ${s.status}">${s.status}</span></td>
     </tr>`).join("") + `</tbody>`;
 }
 
-// --- RENDER INPUT FORMS ---
+// --- FORMS & ACTIONS ---
 function renderForms() {
-  const pSelect = $("jSku");
-  pSelect.innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)} (${esc(p.sku)})</option>`).join("");
+  $("jSku").innerHTML = STORE.produk.map(p => `<option value="${esc(p.sku)}">${esc(p.nama_produk)} (${esc(p.sku)})</option>`).join("");
 
   const allSales = [];
   ["shopee", "tokopedia"].forEach(pf => {
@@ -694,47 +708,43 @@ function renderForms() {
   allSales.sort((a,b) => b.tanggal.localeCompare(a.tanggal));
 
   $("tJual").innerHTML = allSales.length
-    ? `<thead><tr><th>Tanggal</th><th>Platform</th><th>SKU</th><th class="r">Jumlah</th><th class="r">Harga Jual</th><th class="r">Aksi</th></tr></thead><tbody>` +
+    ? `<thead><tr><th>Tanggal</th><th>Platform</th><th>SKU</th><th class="r">Harga</th><th class="r">Aksi</th></tr></thead><tbody>` +
       allSales.slice(0, 10).map(r => `<tr>
         <td>${r.tanggal}</td>
         <td><span class="pill aman">${r.pf}</span></td>
         <td>${esc(r.sku)}</td>
-        <td class="r">${r.jumlah}</td>
         <td class="r">${rp(r.harga_jual)}</td>
         <td class="r"><button class="btn ghost sm" onclick="hapusPenjualan('${r.pf}', ${r.i})">Hapus</button></td>
       </tr>`).join("") + `</tbody>`
-    : `<tbody><tr><td colspan="6">Belum ada penjualan.</td></tr></tbody>`;
+    : `<tbody><tr><td colspan="5">Belum ada penjualan.</td></tr></tbody>`;
 
-  $("tProduk").innerHTML = `<thead><tr><th>SKU</th><th>Nama Produk</th><th class="r">Modal</th><th class="r">Harga Jual</th><th class="r">Stok Awal</th><th class="r">Aksi</th></tr></thead><tbody>` +
+  $("tProduk").innerHTML = `<thead><tr><th>SKU</th><th>Nama Produk</th><th class="r">Modal</th><th class="r">Stok</th><th class="r">Aksi</th></tr></thead><tbody>` +
     STORE.produk.map(p => `<tr>
       <td><b>${esc(p.sku)}</b></td>
       <td>${esc(p.nama_produk)}</td>
       <td class="r">${rp(p.harga_modal)}</td>
-      <td class="r">${p.harga_jual ? rp(p.harga_jual) : "-"}</td>
       <td class="r">${num(p.stok_awal)}</td>
       <td class="r"><button class="btn ghost sm" onclick="hapusProduk('${esc(p.sku)}')">Hapus</button></td>
     </tr>`).join("") + `</tbody>`;
 }
 
-// --- ACTIONS & HANDLERS ---
 $("fJual").onsubmit = e => {
   e.preventDefault();
-  const pf = $("jPf").value;
-  const sku = $("jSku").value;
+  const pf = $("jPf").value, sku = $("jSku").value;
   if (!sku) return toast("Pilih produk terlebih dahulu", true);
 
   const orderId = $("jOrder").value.trim() || (pf === "shopee" ? "SPE" : "TKP") + Date.now().toString(36).toUpperCase();
   STORE[pf].push({
     tanggal: $("jTgl").value,
     order_id: orderId,
-    sku: sku,
+    sku,
     jumlah: +$("jQty").value,
     harga_jual: +$("jHarga").value,
     biaya_platform: +$("jBiaya").value || 0
   });
 
   saveStore(STORE);
-  toast("Penjualan berhasil disimpan!");
+  toast("Penjualan disimpan!");
   $("jQty").value = 1;
   $("jOrder").value = "";
 };
@@ -756,7 +766,7 @@ $("fProduk").onsubmit = e => {
   else STORE.produk.push(item);
 
   saveStore(STORE);
-  toast("Master produk berhasil disimpan!");
+  toast("Master produk disimpan!");
   $("fProduk").reset();
 };
 
@@ -769,7 +779,7 @@ function hapusPenjualan(pf, idx) {
 }
 
 function hapusProduk(sku) {
-  if (confirm(`Hapus SKU ${sku}? Penjualan produk ini tidak akan dihitung di dashboard.`)) {
+  if (confirm(`Hapus SKU ${sku}?`)) {
     STORE.produk = STORE.produk.filter(p => p.sku !== sku);
     saveStore(STORE);
     toast("Produk dihapus.");
@@ -779,7 +789,6 @@ function hapusProduk(sku) {
 $("pReset").onclick = () => $("fProduk").reset();
 $("jTgl").value = new Date().toISOString().split("T")[0];
 
-// Navigation Tabs
 $("navTabs").onclick = e => {
   if (e.target.tagName !== "BUTTON") return;
   document.querySelectorAll("#navTabs button").forEach(b => b.classList.remove("on"));
@@ -788,7 +797,6 @@ $("navTabs").onclick = e => {
   ["dash", "jual", "produk", "impor"].forEach(id => $(id).hidden = id !== target);
 };
 
-// Filter Platform
 $("pfFilter").onclick = e => {
   if (e.target.tagName !== "BUTTON") return;
   document.querySelectorAll("#pfFilter button").forEach(b => b.classList.remove("on"));
