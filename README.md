@@ -1,8 +1,8 @@
-##📊 Dashboard Penjualan UMKM Pro##
+# 📊 Dashboard Penjualan UMKM Pro
 
 Dashboard Penjualan UMKM Pro adalah aplikasi web manajemen bisnis dan analisis keuangan terpadu yang dirancang untuk membantu pelaku UMKM mengelola transaksi multi-channel, memantau stok gudang, serta menganalisis keuntungan bersih secara presisi.
 
-📌 a. Judul & Deskripsi
+## 📌 a. Judul & Deskripsi
 
 Nama Produk Digital: Dashboard Penjualan UMKM Pro
 
@@ -10,7 +10,7 @@ Latar Belakang Masalah: Banyak pelaku UMKM yang berjualan di beberapa marketplac
 
 Target Pengguna: Pemilik UMKM, online seller multi-platform, pengelola toko ritel/online, dan wirausahawan muda.
 
-🛠️ b. Teknologi yang Digunakan
+## 🛠️ b. Teknologi yang Digunakan
 
 Bahasa Pemrograman: HTML5, CSS3 (Modern CSS Variables & Glassmorphism Styling), JavaScript (Vanilla ES6+).
 
@@ -18,7 +18,7 @@ Modul / Pustaka: Native Browser Web APIs (DOM Manipulation, LocalStorage API, SV
 
 Platform Publikasi: GitHub Pages / Vercel / Netlify (Aplikasi Client-Side Standalone).
 
-🤖 c. Pemanfaatan AI (AI Usage Disclosure)
+## 🤖 c. Pemanfaatan AI (AI Usage Disclosure)
 
 Alat AI yang Digunakan: Gemini (Google AI).
 
@@ -38,7 +38,7 @@ Mengembangkan fungsi migrasi otomatis data dari versi penyimpanan lama ke versi 
 
 Mengoptimalkan tampilan antarmuka agar responsive pada perangkat seluler/mobile.
 
-📖 d. Panduan Penggunaan
+## 📖 d. Panduan Penggunaan
 
 Aplikasi ini dapat dijalankan langsung melalui peramban web (browser) tanpa perlu menginstal aplikasi tambahan.
 
@@ -64,7 +64,7 @@ Arus Kas Ops: Catat biaya operasional tambahan (dus, lakban, listrik) pada tab A
 
 Pantau Dashboard: Lihat analisis omzet, laba bersih, grafik tren, dan peringatan restock pada tab Dashboard.
 
-👤 e. Identitas Pengembang
+## 👤 e. Identitas Pengembang
 
 Nama Lengkap: Brillyan Ahmad Adi Prayanto
 
